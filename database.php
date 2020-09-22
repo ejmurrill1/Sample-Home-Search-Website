@@ -1,13 +1,9 @@
 <?php
 
-$dsn = "mysql:host=localhost; dbname=cis4290";
-$username = "root";
-$password = "vt1828FF";
+$dbServername = "localhost";
+$dbUsername = "root";
+$dbPassword = "";
+$dbName = "cis4290";
 
-try {
-    $db = new PDO ($dsn, $username, $password);
-} catch (Exception $ex) {
-    echo 'Error connecting to database';
-    exit();
-}
+$conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
 
