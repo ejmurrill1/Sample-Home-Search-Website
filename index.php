@@ -1,5 +1,5 @@
 <?php
-
+require ('./database.php');
 ?>
 <html>
     <head>
@@ -11,6 +11,7 @@
     <body>
         <form>
             <input type="text" placeholder="Enter a zip code">
+            <input type="submit" id="searchsubmit" value="Search">
         </form>
     </body>
         
