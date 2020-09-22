@@ -10,6 +10,7 @@ require ('./database.php');
     </head>
     <body>
         <form>
+            <?php echo 'Test'; ?>
             <input type="text" placeholder="Enter a zip code">
             <input type="submit" id="searchsubmit" value="Search">
         </form>
