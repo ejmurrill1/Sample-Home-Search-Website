@@ -1,20 +1,22 @@
-<?php
-require ('./database.php');
-?>
+<!DOCTYPE html>
 <html>
-    <head>
-    <meta charset="utf-8">
-    <title>Search</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <form>
-            <?php echo 'Test'; ?>
-            <input type="text" placeholder="Enter a zip code">
-            <input type="submit" id="searchsubmit" value="Search">
-        </form>
-    </body>
-        
+<head>
+
+  <link rel="stylesheet" href="style.css">
+
+  <div id="navbar">
+   <a href="index.php">Home</a>
+   <a href="loginPage.php">Login</a>
+  </div>
+</head>
+
+<body>
+
+
+    <form action="houseListings.php" method="POST">
+      <input type="text" name="search" placeholder="Search">
+      <button type="submit" name="submit-search">Search</button>
+    </form>
+
 </html>
 
