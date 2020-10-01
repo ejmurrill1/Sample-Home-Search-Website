@@ -9,7 +9,7 @@ include 'database.php';
 <h1>Search Page</h1>
 
 <div class="houseList">
-  <form action="search.php" method="POST">
+  <form action="houselistings.php" method="POST">
     <input type="text" name="search" placeholder="Search" aria-label="Search">
     <button type="submit" name="submit-search">Search</button>
 
