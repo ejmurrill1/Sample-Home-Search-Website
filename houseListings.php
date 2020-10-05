@@ -13,26 +13,26 @@ include 'database.php';
     <input type="text" name="search" placeholder="Search" aria-label="Search">
     <button type="submit" name="submit-search">Search</button>
 
-      <select id="inputBed">
-        <option selected>Beds</options>
-        <option>Any</option>
-        <option>1+</option>
-        <option>2+</option>
-        <option>3+</option>
-        <option>4+</option>
-        <option>5+</option>
-        <option>6+</option>
+     <select name="inputbed">
+        <option>Beds</options>
+        <option value="0">Any</option>
+        <option value="1">1+</option>
+        <option value="2">2+</option>
+        <option value="3">3+</option>
+        <option value="4">4+</option>
+        <option value="5">5+</option>
+        <option value="6">6+</option>
       </select>
 
       <select id="inputBath">
         <option selected>Bath</options>
-        <option>Any</option>
-        <option>1+</option>
-        <option>2+</option>
-        <option>3+</option>
-        <option>4+</option>
-        <option>5+</option>
-        <option>6+</option>
+          <option value="0">Any</option>
+          <option value="1">1+</option>
+          <option value="2">2+</option>
+          <option value="3">3+</option>
+          <option value="4">4+</option>
+          <option value="5">5+</option>
+          <option value="6">6+</option>
       </select>
 
     <input type="text" placeholder="Min Price" name="minPrice">
@@ -83,7 +83,9 @@ include 'database.php';
   if(isset($_POST['submit-search']))
     {
     $search = mysqli_real_escape_string($conn, $_POST['search']);
-    $sql = "SELECT * FROM cis4290 WHERE address LIKE '%$search%' OR state='%$search%' OR zipcode LIKE '%$search%' OR city LIKE '%$search%'";
+    $bed =  mysqli_real_escape_string($conn, $_POST['inputbed']);
+    $bath =  mysqli_real_escape_string($conn, $_POST['inputBath']);
+    $sql = "SELECT * FROM cis4290 WHERE address LIKE '$search' OR state='$search' OR zipcode LIKE '$search' OR city LIKE '$search' OR numbed >= '$bed' OR numbath >='$bath'";
     $result = mysqli_query($conn, $sql);
     $queryResult=mysqli_num_rows($result);
 
