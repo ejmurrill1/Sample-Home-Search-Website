@@ -85,7 +85,7 @@ include 'database.php';
     $search = mysqli_real_escape_string($conn, $_POST['search']);
     $bed =  mysqli_real_escape_string($conn, $_POST['inputbed']);
     $bath =  mysqli_real_escape_string($conn, $_POST['inputBath']);
-    $sql = "SELECT * FROM cis4290 WHERE address LIKE '$search' OR state='$search' OR zipcode LIKE '$search' OR city LIKE '$search' OR numbed >= '$bed' OR numbath >='$bath'";
+    $sql = "SELECT * FROM cis4290 WHERE address = '$search' OR state='$search' OR zipcode = '$search' OR city = '$search' OR numbed >= '$bed' OR numbath >='$bath'";
     $result = mysqli_query($conn, $sql);
     $queryResult=mysqli_num_rows($result);
 
