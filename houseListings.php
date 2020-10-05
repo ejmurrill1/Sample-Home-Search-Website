@@ -9,7 +9,7 @@ include 'database.php';
 <h1>Search Page</h1>
 
 <div class="houseList">
-  <form action="houselistings.php" method="POST">
+  <form action="houseListings.php" method="POST">
     <input type="text" name="search" placeholder="Search" aria-label="Search">
     <button type="submit" name="submit-search">Search</button>
 
@@ -24,7 +24,7 @@ include 'database.php';
         <option value="6">6+</option>
       </select>
 
-      <select id="inputBath">
+      <select name="inputBath">
         <option selected>Bath</options>
           <option value="0">Any</option>
           <option value="1">1+</option>
