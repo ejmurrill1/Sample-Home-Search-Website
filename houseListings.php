@@ -18,8 +18,8 @@ include 'database.php';
                ?>>
     <button type="submit" name="submit-search">Search</button>
 
+     <label>Beds</label>
      <select name="inputBed">
-        <option>Beds</options>
         <option value="0">Any</option>
         <option value="1">1+</option>
         <option value="2">2+</option>
@@ -29,8 +29,8 @@ include 'database.php';
         <option value="6">6+</option>
       </select>
 
+      <label>Baths</label>
       <select name="inputBath">
-        <option selected>Bath</options>
           <option value="0">Any</option>
           <option value="1">1+</option>
           <option value="2">2+</option>
@@ -39,13 +39,35 @@ include 'database.php';
           <option value="5">5+</option>
           <option value="6">6+</option>
       </select>
-
-    <input type="text" placeholder="Min Price" name="minPrice">
-    <input type="text" placeholder="Max Price" name ="maxPrice">
-
-
-    <input type="text" placeholder="Min SqFt" name="minSqFt">
-    <input type="text" placeholder="Max SqFt" name ="maxSqFt">
+  
+<label for="minPrice">Minimum Price</label>
+    <input type="text" placeholder="Min Price" name="minPrice"
+           <?php
+           if (!empty($_POST['minPrice'])){
+               echo 'value=\'' . $_POST['minPrice'] . '\'';
+           }
+           ?>>
+    <label for="maxPrice">Maximum Price</label>
+    <input type="text" placeholder="Max Price" name ="maxPrice"
+           <?php
+           if (!empty($_POST['maxPrice'])){
+               echo 'value=\'' . $_POST['maxPrice'] . '\'';
+           }
+           ?>>
+     <label for="minSqFt">Minimum Square Footage</label>
+     <input type="text" placeholder="Min Square Footage" name="minSqFt"
+            <?php
+            if (!empty($_POST['minSqFt'])){
+                echo 'value=\'' . $_POST['minSqFt'] . '\'';
+            }
+            ?>>
+     <label for="maxSqFt">Maximum Square Footage</label>
+     <input type="text" placeholder="Max Square Footage" name ="maxSqFt"
+            <?php
+            if (!empty($_POST['maxSqFt'])){
+                echo 'value=\'' . $_POST['maxSqFt'] . '\'';
+            }
+            ?>>
 
     <div class="form-row">
         <label for="minPopulation">Minimum City Population</label>
@@ -178,6 +200,12 @@ include 'database.php';
   </form>
     
   <?php
+  $bed = filter_input(INPUT_POST, 'inputBed');
+  $bath = filter_input(INPUT_POST, 'inputBath');
+  $minPrice = filter_input(INPUT_POST, 'minPrice');
+  $maxPrice = filter_input(INPUT_POST, 'maxPrice');
+  $minSqFt = filter_input(INPUT_POST, 'minSqFt');
+  $maxSqFt = filter_input(INPUT_POST, 'maxSqFt');
   $minPop = filter_input(INPUT_POST, 'minPopulation');
   $maxPop = filter_input(INPUT_POST, 'maxPopulation');
   $minMedAge = filter_input(INPUT_POST, 'minMedianAge');
@@ -199,6 +227,24 @@ include 'database.php';
   
   //whichever filter option is set is added to an array that has all the conditions
   $conditions = array();
+  if (!empty($bed)) {
+      $conditions[] = "numbed >= $bed";
+  }
+  if (!empty($bath)) {
+      $conditions[] = "numbath >= $bath";
+  }
+  if (!empty($minPrice)) {
+    $conditions[] = "price >= $minPrice";
+  }
+  if (!empty($maxPrice)) {
+    $conditions[] = "price <= $maxPrice";
+   }
+   if (!empty($minSqFt)) {
+       $conditions[] = "squarefootage >= $minSqFt";
+   }
+   if (!empty($maxSqFt)) {
+       $conditions[] = "squarefootage <= $maxSqFt";
+   }
   if (!empty($minPop)) {
       $conditions[] = "population >= $minPop";
   }
