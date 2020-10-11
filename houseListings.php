@@ -1,9 +1,12 @@
 <?php
 include 'database.php';
+session_start();
  ?>
 <!DOCTYPE html>
 <html>
 <head>
+
+  <link rel="stylesheet" href="style.css">
 
 </head>
 <h1>Search Page</h1>
@@ -17,8 +20,9 @@ include 'database.php';
                }
                ?>>
     <button type="submit" name="submit-search">Search</button>
-
-     <label>Beds</label>
+ <br/>
+  <br/>
+   <label>Beds</label>
      <select name="inputBed">
         <option value="0">Any</option>
         <option value="1">1+</option>
@@ -27,8 +31,7 @@ include 'database.php';
         <option value="4">4+</option>
         <option value="5">5+</option>
         <option value="6">6+</option>
-      </select>
-
+     </select>
       <label>Baths</label>
       <select name="inputBath">
           <option value="0">Any</option>
@@ -39,7 +42,6 @@ include 'database.php';
           <option value="5">5+</option>
           <option value="6">6+</option>
       </select>
-  
 <label for="minPrice">Minimum Price</label>
     <input type="text" placeholder="Min Price" name="minPrice"
            <?php
@@ -54,6 +56,7 @@ include 'database.php';
                echo 'value=\'' . $_POST['maxPrice'] . '\'';
            }
            ?>>
+		    <br/> <br/>
      <label for="minSqFt">Minimum Square Footage</label>
      <input type="text" placeholder="Min Square Footage" name="minSqFt"
             <?php
@@ -68,7 +71,7 @@ include 'database.php';
                 echo 'value=\'' . $_POST['maxSqFt'] . '\'';
             }
             ?>>
-
+  <br/> <br/>
     <div class="form-row">
         <label for="minPopulation">Minimum City Population</label>
         <input type="text" placeholder="Min Population" name="minPopulation" 
@@ -84,6 +87,7 @@ include 'database.php';
                    echo 'value=\'' . $_POST['maxPopulation'] . '\'';
                }
                ?>>
+			     <br/> <br/>
         <label for="minMedianAge">Minimum Median Age</label>
         <input type="text" placeholder="Min Median Age" name="minMedianAge"
                <?php 
@@ -112,7 +116,6 @@ include 'database.php';
                    echo 'value=\'' . $_POST['maxMedianHousholdIncome'] . '\'';
                }
                ?>>
-        
         <label for="minUnemploymentRate">2020 Minimum Unemployment Rate</label>
         <input type="text" placeholder="Min Unemployment Rate" name="minUnemploymentRate" 
                <?php 
@@ -188,8 +191,7 @@ include 'database.php';
                    echo 'value=\'' . $_POST['maxOwnerOccupiedHUs'] . '\'';
                }
                ?>>
-
-        <label for="airQuality">Minimum Air Quality</label>
+		<label for="airQuality">Minimum Air Quality</label>
         <input type="text" placeholder="Enter index 1-100" name="airQuality" 
                <?php 
                if (!empty($_POST['airQuality'])){
@@ -299,22 +301,21 @@ include 'database.php';
   if(!empty($airQuality)) {
       $conditions[] = "airquality >= $airQuality";
   }
-
-  if(isset($_POST['submit-search']))
+	if(isset($_POST['submit-search']))
     {
     $search = mysqli_real_escape_string($conn, $_POST['search']);
-    $sql = "SELECT * FROM combinedhomes WHERE (address = '$search' OR state= '$search' OR zipcode = '$search' OR city = '$search')";
+    $sql = "SELECT * FROM cis4290 WHERE (address = '$search' OR state= '$search' OR zipcode = '$search' OR city = '$search')";
     //append 'and' conditions to sql statement
     if(count($conditions) === 1){
         $sql .= ' AND ' . $conditions[0];
     } else if(count($conditions) > 1) {
         $sql .= ' AND ' . implode(' AND ', $conditions);
     }
-    $result = mysqli_query($conn, $sql);
-    $queryResult=mysqli_num_rows($result);
-
-    if($queryResult > 0){
-      while($row = mysqli_fetch_assoc($result)) {
+   // $result = mysqli_query($conn, $sql);
+	$connectsqli = $conn->query($sql);
+	//$queryResult=mysqli_num_rows($result);
+if(!empty($connectsqli) && $connectsqli->num_rows > 0){
+      while($row = mysqli_festch_assoc($result)) {
         echo "<div class='card' style='width: 18rem;''>
         <img src=".$row['image-src']." alt='Avatar' style='width:100%'>
         <div class='container'>
