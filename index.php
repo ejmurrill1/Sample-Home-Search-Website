@@ -1,40 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-  <link rel="stylesheet" href="style.css">
-  <div id="navbar">
-   <a href="index.php">Home</a>
-   <a href="loginPage.php">Login</a>
-  </div>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form action="houseListings.php" method="POST">
-      <input type="text" name="search" placeholder="Search">
-      <button type="submit" name="submit-search">Search</button>
-    </form>
-
+    <div id="navbar">
+        <a href="index.php">Home</a>
+        <a href="loginPage.php">Login</a>
+    </div>
     <div class="jumbotron text-center">
-  <h1>Home Property Search</h1>
-  <p>Resize this responsive page to see the effect!</p>
-</div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4">
-      <h3>Column 1</h3>
-      <p>Lorem ipsum dolor..</p>
+      <h1>Search for a Home</h1>
     </div>
-    <div class="col-sm-4">
-      <h3>Column 2</h3>
-      <p>Lorem ipsum dolor..</p>
+    
+    <div class="container">
+    <form action="houseListings.php" method="POST">
+        <div class="input-group mb-4">
+            <input type="search" name="search" placeholder="Enter a city, address, or zip code" aria-describedby="button-addon5" class="form-control">
+            <div class="input-group-append">
+                <button id="button-addon5" type="submit" name="submit-search" class="btn btn-primary"><i class="fa fa-search"></i></button>
+            </div>
+        </div>
+    </form>
     </div>
-    <div class="col-sm-4">
-      <h3>Column 3</h3>
-      <p>Lorem ipsum dolor..</p>
-    </div>
-  </div>
-</div>  
+ 
 </body>
 </html>
 
