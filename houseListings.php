@@ -5,199 +5,261 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-
-  <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
 
 </head>
-<h1>Search Page</h1>
-
+<body>
+<div class="container-fluid">
+    <div class="row py-5">
+        <div class="col-lg-9 mx-auto text-center">
+            <h1 class="display-4">Search Results</h1>
+        </div>
+    </div>
 <div class="houseList">
-  <form action="houseListings.php" method="POST">
-    <input type="text" name="search" placeholder="Search" aria-label="Search"
-           <?php 
-               if (!empty($_POST['search'])){
-                   echo 'value=\'' . $_POST['search'] . '\'';
-               }
-               ?>>
-    <button type="submit" name="submit-search">Search</button>
- <br/>
-  <br/>
-   <label>Beds</label>
-     <select name="inputBed">
-        <option value="0">Any</option>
-        <option value="1">1+</option>
-        <option value="2">2+</option>
-        <option value="3">3+</option>
-        <option value="4">4+</option>
-        <option value="5">5+</option>
-        <option value="6">6+</option>
-     </select>
-      <label>Baths</label>
-      <select name="inputBath">
-          <option value="0">Any</option>
-          <option value="1">1+</option>
-          <option value="2">2+</option>
-          <option value="3">3+</option>
-          <option value="4">4+</option>
-          <option value="5">5+</option>
-          <option value="6">6+</option>
-      </select>
-<label for="minPrice">Minimum Price</label>
-    <input type="text" placeholder="Min Price" name="minPrice"
-           <?php
-           if (!empty($_POST['minPrice'])){
-               echo 'value=\'' . $_POST['minPrice'] . '\'';
-           }
-           ?>>
-    <label for="maxPrice">Maximum Price</label>
-    <input type="text" placeholder="Max Price" name ="maxPrice"
-           <?php
-           if (!empty($_POST['maxPrice'])){
-               echo 'value=\'' . $_POST['maxPrice'] . '\'';
-           }
-           ?>>
-		    <br/> <br/>
-     <label for="minSqFt">Minimum Square Footage</label>
-     <input type="text" placeholder="Min Square Footage" name="minSqFt"
-            <?php
-            if (!empty($_POST['minSqFt'])){
-                echo 'value=\'' . $_POST['minSqFt'] . '\'';
-            }
-            ?>>
-     <label for="maxSqFt">Maximum Square Footage</label>
-     <input type="text" placeholder="Max Square Footage" name ="maxSqFt"
-            <?php
-            if (!empty($_POST['maxSqFt'])){
-                echo 'value=\'' . $_POST['maxSqFt'] . '\'';
-            }
-            ?>>
-  <br/> <br/>
-    <div class="form-row">
-        <label for="minPopulation">Minimum City Population</label>
-        <input type="text" placeholder="Min Population" name="minPopulation" 
-               <?php 
-               if (!empty($_POST['minPopulation'])){
-                   echo 'value=\'' . $_POST['minPopulation'] . '\'';
-               }
-               ?>>
-        <label for="maxPopulation">Maximum City Population</label>
-        <input type="text" placeholder="Max Population" name ="maxPopulation"
-               <?php 
-               if (!empty($_POST['maxPopulation'])){
-                   echo 'value=\'' . $_POST['maxPopulation'] . '\'';
-               }
-               ?>>
-			     <br/> <br/>
-        <label for="minMedianAge">Minimum Median Age</label>
-        <input type="text" placeholder="Min Median Age" name="minMedianAge"
-               <?php 
-               if (!empty($_POST['minMedianAge'])){
-                   echo 'value=\'' . $_POST['minMedianAge'] . '\'';
-               }
-               ?>>
-        <label for="maxMedianAge">Maximum Median Age</label>
-        <input type="text" placeholder="Max Median Age" name ="maxMedianAge"
-               <?php 
-               if (!empty($_POST['maxMedianAge'])){
-                   echo 'value=\'' . $_POST['maxMedianAge'] . '\'';
-               }
-               ?>>
-        <label for="minMedianHouseholdIncome">2020 Minimum Median Household Income</label>       
-        <input type="text" placeholder="Min Median Household Income" name="minMedianHouseholdIncome"
-               <?php 
-               if (!empty($_POST['minMedianHousholdIncome'])){
-                   echo 'value=\'' . $_POST['minMedianHousholdIncome'] . '\'';
-               }
-               ?>>
-        <label for="maxMedianHouseholdIncome">2020 Maximum Median Household Income</label>
-        <input type="text" placeholder="Max Median Household Income" name ="maxMedianHouseholdIncome"
-               <?php 
-               if (!empty($_POST['maxMedianHousholdIncome'])){
-                   echo 'value=\'' . $_POST['maxMedianHousholdIncome'] . '\'';
-               }
-               ?>>
-        <label for="minUnemploymentRate">2020 Minimum Unemployment Rate</label>
-        <input type="text" placeholder="Min Unemployment Rate" name="minUnemploymentRate" 
-               <?php 
-               if (!empty($_POST['minUnemploymentRate'])){
-                   echo 'value=\'' . $_POST['minUnemploymentRate'] . '\'';
-               }
-               ?>>
-        <label for="maxUnemploymentRate">2020 Maximum Unemployment Rate</label>
-        <input type="text" placeholder="Max Unemployment Rate" name ="maxUnemploymentRate"
-               <?php 
-               if (!empty($_POST['maxUnemploymentRate'])){
-                   echo 'value=\'' . $_POST['maxUnemploymentRate'] . '\'';
-               }
-               ?>>
-        <label>2020 Minimum Property Crime Index</label>
-        <input type="text" placeholder="Min Crime Index" name="minCrimeIndex"
-               <?php 
-               if (!empty($_POST['minCrimeIndex'])){
-                   echo 'value=\'' . $_POST['minCrimeIndex'] . '\'';
-               }
-               ?>>
-        <label>2020 Maximum Property Crime Index</label>
-        <input type="text" placeholder="Max Crime Index" name ="maxCrimeIndex"
-               <?php 
-               if (!empty($_POST['maxCrimeIndex'])){
-                   echo 'value=\'' . $_POST['maxCrimeIndex'] . '\'';
-               }
-               ?>>
-        <label>2020-2025 Growth Rate: Population</label>
-        <input type="text" placeholder="Min Growth Rate" name="minPopulationGrowth"
-               <?php 
-               if (!empty($_POST['minPopulationGrowth'])){
-                   echo 'value=\'' . $_POST['minPopulationGrowth'] . '\'';
-               }
-               ?>>
-        <input type="text" placeholder="Max Growth Rate" name ="maxPopulationGrowth"
-               <?php 
-               if (!empty($_POST['maxPopulationGrowth'])){
-                   echo 'value=\'' . $_POST['maxPopulationGrowth'] . '\'';
-               }
-               ?>>
-        <label for="minBachelorsDegree">2020 Population Age 25+: Bachelor's Degree</label>      
-        <input type="text" placeholder="Min Bachelors Degree" name="minBachelorsDegree"
-               <?php 
-               if (!empty($_POST['minBachelorsDegree'])){
-                   echo 'value=\'' . $_POST['minBachelorsDegree'] . '\'';
-               }
-               ?>>
-        <label for="minTotalHousingUnit">2020 Minimum Total Housing Units</label>
-        <input type="text" placeholder="Min Total Housing Unit" name="minTotalHousingUnit"
-               <?php 
-               if (!empty($_POST['minTotalHousingUnit'])){
-                   echo 'value=\'' . $_POST['minTotalHousingUnit'] . '\'';
-               }
-               ?>>
-        <label for="maxTotalHousingUnit">2020 Maximum Total Housing Units</label>
-        <input type="text" placeholder="Max Total Housing Unit" name ="maxTotalHousingUnit"
-               <?php 
-               if (!empty($_POST['maxTotalHousingUnit'])){
-                   echo 'value=\'' . $_POST['maxTotalHousingUnit'] . '\'';
-               }
-               ?>>
-        <label>2020 Ownder Occupied Housing Units</label>
-        <input type="text" placeholder="Min Owner Occupied HUs" name="minOwnerOccupiedHUs"
-               <?php 
-               if (!empty($_POST['minOwnerOccupiedHUs'])){
-                   echo 'value=\'' . $_POST['minOwnerOccupiedHUs'] . '\'';
-               }
-               ?>>
-        <input type="text" placeholder="Max Owner Occupied HUs" name ="maxOwnerOccupiedHUs"
-               <?php 
-               if (!empty($_POST['maxOwnerOccupiedHUs'])){
-                   echo 'value=\'' . $_POST['maxOwnerOccupiedHUs'] . '\'';
-               }
-               ?>>
-		<label for="airQuality">Minimum Air Quality</label>
-        <input type="text" placeholder="Enter index 1-100" name="airQuality" 
-               <?php 
-               if (!empty($_POST['airQuality'])){
-                   echo 'value=\'' . $_POST['airQuality'] . '\'';
-               }
-               ?>>
+<div class="row mb-5">
+    <div class="col-lg-8 mx-auto bg-white p-5 rounded shadow">
+    <form action="houseListings.php" method="POST">
+        <div class="row">
+            <div class="input-group mb-4">
+                <input type="text" name="search" placeholder="Search" aria-label="Search" class="form-control form-control-md"
+                       <?php 
+                           if (!empty($_POST['search'])){
+                               echo 'value=\'' . $_POST['search'] . '\'';
+                           }
+                           ?>>
+                <div class="input-group-append">
+                    <button id="button-addon5" type="submit" name="submit-search" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-auto mb-3">
+                <label for="inputBed">Beds</label>
+                <select name="inputBed" class="custom-select d-block w-100">
+                    <option value="0">Any</option>
+                    <option value="1">1+</option>
+                    <option value="2">2+</option>
+                    <option value="3">3+</option>
+                    <option value="4">4+</option>
+                    <option value="5">5+</option>
+                    <option value="6">6+</option>
+                 </select>
+            </div>
+            <div class="col-sm-auto mb-3">
+                <label for="inputBath">Baths</label>
+                <select name="inputBath" class="custom-select d-block w-100">
+                    <option value="0">Any</option>
+                    <option value="1">1+</option>
+                    <option value="2">2+</option>
+                    <option value="3">3+</option>
+                    <option value="4">4+</option>
+                    <option value="5">5+</option>
+                    <option value="6">6+</option>
+                </select>
+            </div>
+            <div class="col-md-auto mb-3">
+                <label for="minPrice">Minimum Price</label>
+                <input type="text" placeholder="Min Price" name="minPrice" class="form-control"
+                       <?php
+                       if (!empty($_POST['minPrice'])){
+                           echo 'value=\'' . $_POST['minPrice'] . '\'';
+                       }
+                       ?>>
+            </div>
+            <div class="col-md-auto mb-3">
+            <label for="maxPrice">Maximum Price</label>
+            <input type="text" placeholder="Max Price" name ="maxPrice" class="form-control"
+                   <?php
+                   if (!empty($_POST['maxPrice'])){
+                       echo 'value=\'' . $_POST['maxPrice'] . '\'';
+                   }
+                   ?>>
+            </div>
+            <div class="col-md-auto mb-3">
+             <label for="minSqFt">Minimum Square Footage</label>
+             <input type="text" placeholder="Min Square Footage" name="minSqFt" class="form-control"
+                    <?php
+                    if (!empty($_POST['minSqFt'])){
+                        echo 'value=\'' . $_POST['minSqFt'] . '\'';
+                    }
+                    ?>>
+            </div>
+            <div class="col-md-auto mb-3">
+             <label for="maxSqFt">Maximum Square Footage</label>
+             <input type="text" placeholder="Max Square Footage" name ="maxSqFt" class="form-control"
+                    <?php
+                    if (!empty($_POST['maxSqFt'])){
+                        echo 'value=\'' . $_POST['maxSqFt'] . '\'';
+                    }
+                    ?>>
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-md-auto mb-3">
+                    <label for="minPopulation">Minimum City Population</label>
+                    <input type="text" placeholder="Min Population" name="minPopulation" class="form-control"
+                           <?php 
+                           if (!empty($_POST['minPopulation'])){
+                               echo 'value=\'' . $_POST['minPopulation'] . '\'';
+                           }
+                           ?>>
+                </div>
+                <div class="col-md-auto mb-3">
+                    <label for="maxPopulation">Maximum City Population</label>
+                    <input type="text" placeholder="Max Population" name ="maxPopulation" class="form-control"
+                           <?php 
+                           if (!empty($_POST['maxPopulation'])){
+                               echo 'value=\'' . $_POST['maxPopulation'] . '\'';
+                           }
+                           ?>>
+                </div>
+                <div class="col-md-auto mb-3">
+                    <label for="minMedianAge">Minimum Median Age</label>
+                    <input type="text" placeholder="Min Median Age" name="minMedianAge" class="form-control"
+                           <?php  
+                           if (!empty($_POST['minMedianAge'])){
+                               echo 'value=\'' . $_POST['minMedianAge'] . '\'';
+                           }
+                           ?>>
+                </div>
+                <div class="col-md-auto mb-3">
+                    <label for="maxMedianAge">Maximum Median Age</label>
+                    <input type="text" placeholder="Max Median Age" name ="maxMedianAge" class="form-control"
+                           <?php 
+                           if (!empty($_POST['maxMedianAge'])){
+                               echo 'value=\'' . $_POST['maxMedianAge'] . '\'';
+                           }
+                           ?>>
+                </div>
+                <div class="col-md-auto mb-3">
+                <label for="minMedianHouseholdIncome">2020 Minimum Median Household Income</label>       
+                <input type="text" placeholder="Min Median Household Income" name="minMedianHouseholdIncome" class="form-control"
+                       <?php 
+                       if (!empty($_POST['minMedianHousholdIncome'])){
+                           echo 'value=\'' . $_POST['minMedianHousholdIncome'] . '\'';
+                       }
+                       ?>>
+                </div>
+                <div class="col-md-auto mb-3">
+                <label for="maxMedianHouseholdIncome">2020 Maximum Median Household Income</label>
+                <input type="text" placeholder="Max Median Household Income" name ="maxMedianHouseholdIncome" class="form-control"
+                       <?php 
+                       if (!empty($_POST['maxMedianHousholdIncome'])){
+                           echo 'value=\'' . $_POST['maxMedianHousholdIncome'] . '\'';
+                       }
+                       ?>>
+                </div>
+        </div>
+        <div class="row">
+            <div class="col-md-auto mb-3">
+                <label for="minUnemploymentRate">2020 Minimum Unemployment Rate</label>
+                <input type="text" placeholder="Min Unemployment Rate" name="minUnemploymentRate" class="form-control"
+                       <?php 
+                       if (!empty($_POST['minUnemploymentRate'])){
+                           echo 'value=\'' . $_POST['minUnemploymentRate'] . '\'';
+                       }
+                       ?>>
+            </div>
+            <div class="col-md-auto mb-3">
+                <label for="maxUnemploymentRate">2020 Maximum Unemployment Rate</label>
+                <input type="text" placeholder="Max Unemployment Rate" name ="maxUnemploymentRate" class="form-control"
+                       <?php 
+                       if (!empty($_POST['maxUnemploymentRate'])){
+                           echo 'value=\'' . $_POST['maxUnemploymentRate'] . '\'';
+                       }
+                       ?>>
+            </div>
+            <div class="col-md-auto mb-3">
+                <label>2020 Minimum Property Crime Index</label>
+                <input type="text" placeholder="Min Crime Index" name="minCrimeIndex" class="form-control"
+                       <?php 
+                       if (!empty($_POST['minCrimeIndex'])){
+                           echo 'value=\'' . $_POST['minCrimeIndex'] . '\'';
+                       }
+                       ?>>
+            </div>
+            <div class="col-md-auto mb-3">
+                <label>2020 Maximum Property Crime Index</label>
+                <input type="text" placeholder="Max Crime Index" name ="maxCrimeIndex" class="form-control"
+                       <?php 
+                       if (!empty($_POST['maxCrimeIndex'])){
+                           echo 'value=\'' . $_POST['maxCrimeIndex'] . '\'';
+                       }
+                       ?>>
+            </div>
+            <div class="col-md-auto mb-3">
+                <label for="minPopulationGrowth">2020-2025 Growth Rate: Population</label>
+                <input type="text" placeholder="Min Growth Rate" name="minPopulationGrowth" class="form-control"
+                       <?php 
+                       if (!empty($_POST['minPopulationGrowth'])){
+                           echo 'value=\'' . $_POST['minPopulationGrowth'] . '\'';
+                       }
+                       ?>>
+
+                <input type="text" placeholder="Max Growth Rate" name ="maxPopulationGrowth" class="form-control"
+                       <?php 
+                       if (!empty($_POST['maxPopulationGrowth'])){
+                           echo 'value=\'' . $_POST['maxPopulationGrowth'] . '\'';
+                       }
+                       ?>>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-auto mb-3">
+                <label for="minBachelorsDegree">2020 Population Age 25+: Bachelor's Degree</label>      
+                <input type="text" placeholder="Min Bachelors Degree" name="minBachelorsDegree" class="form-control"
+                       <?php 
+                       if (!empty($_POST['minBachelorsDegree'])){
+                           echo 'value=\'' . $_POST['minBachelorsDegree'] . '\'';
+                       }
+                       ?>>
+            </div>
+            <div class="col-md-auto mb-3">
+                <label for="minTotalHousingUnit">2020 Minimum Total Housing Units</label>
+                <input type="text" placeholder="Min Total Housing Unit" name="minTotalHousingUnit" class="form-control"
+                       <?php 
+                       if (!empty($_POST['minTotalHousingUnit'])){
+                           echo 'value=\'' . $_POST['minTotalHousingUnit'] . '\'';
+                       }
+                       ?>>
+            </div>
+            <div class="col-md-auto mb-3">
+                <label for="maxTotalHousingUnit">2020 Maximum Total Housing Units</label> 
+                <input type="text" placeholder="Max Total Housing Unit" name ="maxTotalHousingUnit" class="form-control"
+                       <?php 
+                       if (!empty($_POST['maxTotalHousingUnit'])){
+                           echo 'value=\'' . $_POST['maxTotalHousingUnit'] . '\'';
+                       }
+                       ?>>
+            </div>
+            <div class="col-md-auto mb-3">
+                <label>2020 Owner Occupied Housing Units</label>
+                <input type="text" placeholder="Min Owner Occupied HUs" name="minOwnerOccupiedHUs" class="form-control"
+                       <?php 
+                       if (!empty($_POST['minOwnerOccupiedHUs'])){
+                           echo 'value=\'' . $_POST['minOwnerOccupiedHUs'] . '\'';
+                       }
+                       ?>>
+                <input type="text" placeholder="Max Owner Occupied HUs" name ="maxOwnerOccupiedHUs" class="form-control"
+                       <?php 
+                       if (!empty($_POST['maxOwnerOccupiedHUs'])){
+                           echo 'value=\'' . $_POST['maxOwnerOccupiedHUs'] . '\'';
+                       }
+                       ?>>
+            </div>
+            <div class="col-md-auto mb-3">
+                <label for="airQuality">Minimum Air Quality</label>
+                <input type="text" placeholder="Enter index 1-100" name="airQuality" class="form-control"
+                       <?php 
+                       if (!empty($_POST['airQuality'])){
+                           echo 'value=\'' . $_POST['airQuality'] . '\'';
+                       }
+                       ?>>
+            </div>
+        </div>
+    </div>
     </div>
   </form>
     
@@ -315,8 +377,8 @@ session_start();
     $connectsqli = $conn->query($sql);
     if(!empty($connectsqli) && $connectsqli->num_rows > 0){
       while($row = mysqli_fetch_assoc($result)) {
-        echo "<div class='card' style='width: 18rem;''>
-        <img src=".$row['image-src']." alt='Avatar' style='width:100%'>
+        echo "<div class='card mb-3' style='width: 18rem;''>
+        <img class='card-img-top' src=".$row['image-src']." alt='Avatar' style='width:100%'>
         <div class='container'>
         <h3>".$row['address']."</h3>
         <p>".$row['city'].", ".$row['state']." ".$row['zipcode']."</p>
@@ -331,6 +393,7 @@ session_start();
     $conn->close();
   }
   ?>
-</div>
+        </div>
+    </div>
 </body>
 </html>
