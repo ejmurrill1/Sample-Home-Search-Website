@@ -304,18 +304,17 @@ session_start();
 	if(isset($_POST['submit-search']))
     {
     $search = mysqli_real_escape_string($conn, $_POST['search']);
-    $sql = "SELECT * FROM cis4290 WHERE (address = '$search' OR state= '$search' OR zipcode = '$search' OR city = '$search')";
+    $sql = "SELECT * FROM cis4290 WHERE (address = '$search' OR state = '$search' OR zipcode = '$search' OR city = '$search')";
     //append 'and' conditions to sql statement
     if(count($conditions) === 1){
         $sql .= ' AND ' . $conditions[0];
     } else if(count($conditions) > 1) {
         $sql .= ' AND ' . implode(' AND ', $conditions);
     }
-   // $result = mysqli_query($conn, $sql);
-	$connectsqli = $conn->query($sql);
-	//$queryResult=mysqli_num_rows($result);
-if(!empty($connectsqli) && $connectsqli->num_rows > 0){
-      while($row = mysqli_festch_assoc($result)) {
+    $result = mysqli_query($conn, $sql);
+    $connectsqli = $conn->query($sql);
+    if(!empty($connectsqli) && $connectsqli->num_rows > 0){
+      while($row = mysqli_fetch_assoc($result)) {
         echo "<div class='card' style='width: 18rem;''>
         <img src=".$row['image-src']." alt='Avatar' style='width:100%'>
         <div class='container'>
@@ -326,10 +325,8 @@ if(!empty($connectsqli) && $connectsqli->num_rows > 0){
         </div>
         </div>";
       }
-    }
-
-    else{
-      echo "There are no results matching your search!";
+    }  else{
+            echo "There are no results matching your search!";
     }
     $conn->close();
   }
