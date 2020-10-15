@@ -8,7 +8,7 @@
 <body>
     <div id="navbar">
         <a href="index.php">Home</a>
-        <a href="loginPage.php">Login</a>
+        <a href="#">Login</a>
     </div>
     <div class="jumbotron text-center">
       <h1>Search for a Home</h1>
