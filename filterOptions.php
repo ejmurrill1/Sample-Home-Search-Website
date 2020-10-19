@@ -23,6 +23,8 @@ $maxTHU = filter_input(INPUT_POST, 'maxTotalHousingUnit');
 $minOOHU = filter_input(INPUT_POST, 'minOwnerOccupiedHUs');
 $maxOOHU = filter_input(INPUT_POST, 'maxOwnerOccupiedHUs');
 $airQuality = filter_input(INPUT_POST, 'airQuality');
+$inputOrder = filter_input(INPUT_POST, 'inputOrder');
+$orderType = filter_input(INPUT_POST, 'orderType');
 
 //whichever filter option is set is added to an array that has all the conditions
   $conditions = array();
@@ -98,5 +100,5 @@ $airQuality = filter_input(INPUT_POST, 'airQuality');
   if(!empty($airQuality)) {
       $conditions[] = "airquality >= $airQuality";
   }
-  ?>
+
 
