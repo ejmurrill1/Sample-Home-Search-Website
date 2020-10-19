@@ -335,7 +335,7 @@ session_start();
           break;
         }
     }
-    if (filter_input(INPUT_POST, 'inputOrderBy') !== 'Any' && filter_input(INPUT_POST, 'orderType') !== 'Any'){
+    if (filter_input(INPUT_POST, 'inputOrder') !== 'Any' && filter_input(INPUT_POST, 'orderType') !== 'Any'){
         $sql = "SELECT * FROM combinedhomes $where $order $orderby";
     } else {
         $sql = "SELECT * FROM combinedhomes $where";
