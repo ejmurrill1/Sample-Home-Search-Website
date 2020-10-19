@@ -259,30 +259,25 @@ session_start();
                        ?>>
             </div>
         </div>
-        <div class="col-sm-auto mb-3">
-            <label for="inputOrderby">Order</label>
-            <select name="inputOrder" class="custom-select d-block w-100">
-                <option>Any</option>
-                <option value="address">Address</option>
-                <option value="city">City</option>
-                <option value="zipcode">Zipcode</option>
-                <option value="state">State</option>
-                <option value="beds">Bed</option>
-                <option value="baths">Bath</option>
-                <option value="price">Price</option>
-                <option value="squarefootage">Square Footage</option>
-             </select>
-        </div>
-        <div class="col-sm-auto mb-3">
-            <label for="order">Order By</label>
-            <select name="inputOrderBy" class="custom-select d-block w-100">
-                <option>Any</option>
-                <option value="ascend">Ascend</option>
-                <option value="descend">Descend</option>
-            </select>
-        </div>
-        <div class="input-group-append">
-            <button id="button-addon5" type="submit" name="btnSort" class="btn btn-primary"><i class="fa fa-search"></i></button>
+            <div class="row">
+            <div class="col-sm-auto mb-3">
+                <label for="inputOrder">Sort</label>
+                <select name="inputOrder" class="custom-select d-block w-100">
+                    <option>Any</option>
+                    <option value="beds">Bed</option>
+                    <option value="baths">Bath</option>
+                    <option value="price">Price</option>
+                    <option value="squarefootage">Square Footage</option>
+                 </select>
+            </div>
+            <div class="col-sm-auto mb-3">
+                <label for="orderType">Order By</label>
+                <select name="orderType" class="custom-select d-block w-100">
+                    <option>Any</option>
+                    <option value="ascend">Ascend</option>
+                    <option value="descend">Descend</option>
+                </select>
+            </div>
         </div>
     </div>
     </div>
@@ -295,12 +290,55 @@ session_start();
     $search = mysqli_real_escape_string($conn, filter_input(INPUT_POST, 'search'));
 
     $where="WHERE (address = '$search' OR state = '$search' OR zipcode = '$search' OR city = '$search')";
-    $sql = "SELECT * FROM combinedhomes $where";
+    
     //append 'and' conditions to sql statement
     if(count($conditions) === 1){
         $where .= ' AND ' . $conditions[0];
     } else if(count($conditions) > 1) {
         $where .= ' AND ' . implode(' AND ', $conditions);
+    }
+    
+    $order = "ORDER BY ";
+    if(filter_input(INPUT_POST, 'btnsort') !== 'Any'){
+        switch ($inputOrder){
+        case "address":
+          $order .= "address";
+          break;
+        case "city":
+          $order .= "city";
+          break;
+        case "zipcode":
+          $order .= "zipcode";
+          break;
+        case "state":
+          $order .= "state";
+          break;
+        case "beds":
+          $order .= "numbed";
+          break;
+        case "baths":
+          $order .= "numbath";
+          break;
+        case "price":
+          $order .= "price";
+          break;
+        case "squarefootage":
+          $order .= "squarefootage";
+          break;
+        }
+        switch ($orderType) {
+        case "ascend":
+          $orderby = " ASC";;
+          break;
+        case "descend":
+          $orderby = " DESC";;
+          break;
+        }
+    }
+    if (filter_input(INPUT_POST, 'inputOrderBy') !== 'Any' && filter_input(INPUT_POST, 'orderType') !== 'Any'){
+        $sql = "SELECT * FROM combinedhomes $where $order $orderby";
+    } else {
+        $sql = "SELECT * FROM combinedhomes $where";
     }
     $result = mysqli_query($conn, $sql);
     $connectsqli = $conn->query($sql);
@@ -323,48 +361,6 @@ session_start();
     else{
             echo "There are no results matching your search!";
     }
-
-  if(filter_input(INPUT_POST, 'btnsort') !== null){
-    $search = mysqli_real_escape_string($conn, filter_input(INPUT_POST, 'search'));
-    $where="WHERE (address = '$search' OR state = '$search' OR zipcode = '$search' OR city = '$search')";
-    $sql = "SELECT * FROM combinedhomes $where";
-    switch ($inputOrder){
-    case "address":
-      $order = "address";
-      break;
-    case "city":
-      $order = "city";
-      break;
-    case "zipcode":
-      $order = "zipcode";
-      break;
-    case "state":
-      $order = "state";
-      break;
-    case "beds":
-      $order = "numbed";
-      break;
-    case "baths":
-      $order = "numbath";
-      break;
-    case "price":
-      $order = "price";
-      break;
-    case "squarefootage":
-      $order = "squarefootage";
-      break;
-    }
-  switch ($inputOrderBy) {
-  case "ascend":
-    $orderby = "ASC";
-    $sql = "SELECT * FROM combinedhomes $where $order $orderby";
-    break;
-  case "descend":
-    $orderby = "DESC";
-    $sql = "SELECT * FROM combinedhomes $where $order $orderby";
-    break;
-  }
-}
   $conn->close();
 ?>
 
