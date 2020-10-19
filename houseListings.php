@@ -335,15 +335,20 @@ session_start();
           break;
         }
     }
-    if (filter_input(INPUT_POST, 'inputOrder') !== 'Any' && filter_input(INPUT_POST, 'orderType') !== 'Any'){
+    if (filter_input(INPUT_POST, 'inputOrder') != 'Any' && filter_input(INPUT_POST, 'orderType') != 'Any'){
         $sql = "SELECT * FROM combinedhomes $where $order $orderby";
     } else {
         $sql = "SELECT * FROM combinedhomes $where";
     }
     $result = mysqli_query($conn, $sql);
     $connectsqli = $conn->query($sql);
+    //display sort message
+    if($inputOrder !== 'Any' && $orderType !== 'Any') { ?>
+        <p style="color: white">Sorting by <?php echo $inputOrder . " " . $orderType . "ing"; ?></p>  
+    <?php     
+    }
+    
     if(!empty($connectsqli) && $connectsqli->num_rows > 0){
-
       while($row = mysqli_fetch_assoc($result)) { ?>
         <div class='card mb-3' style='width: 18rem;'>
         <img class='card-img-top' src="<?php echo $row['image-src'] ?>" alt='Avatar' style='width:100%'>
