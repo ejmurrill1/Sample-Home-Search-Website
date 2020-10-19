@@ -23,6 +23,8 @@ $maxTHU = filter_input(INPUT_POST, 'maxTotalHousingUnit');
 $minOOHU = filter_input(INPUT_POST, 'minOwnerOccupiedHUs');
 $maxOOHU = filter_input(INPUT_POST, 'maxOwnerOccupiedHUs');
 $airQuality = filter_input(INPUT_POST, 'airQuality');
+$inputOrder = filter_input(INPUT_POST, 'inputOrder');
+$inputOrderBy = filter_input(INPUT_POST, 'inputOrderby');
 
 //whichever filter option is set is added to an array that has all the conditions
   $conditions = array();
