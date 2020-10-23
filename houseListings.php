@@ -11,6 +11,13 @@ session_start();
 
 </head>
 <body>
+
+<div id="navbar">
+        <a href="index.php">Home</a>
+        <a href="loginPage.php">Login</a>
+        <a href="registrationPage.php">Registration</a>
+    </div>
+
 <div class="container-fluid">
     <div class="row py-5">
         <div class="col-lg-9 mx-auto text-center">
