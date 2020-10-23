@@ -298,8 +298,9 @@ session_start();
         $where .= ' AND ' . implode(' AND ', $conditions);
     }
     
-    $order = "ORDER BY ";
-    if(filter_input(INPUT_POST, 'btnsort') !== 'Any'){
+    
+    if($inputOrder !== 'Any'){
+        $order = "ORDER BY ";
         switch ($inputOrder){
         case "address":
           $order .= "address";
@@ -326,6 +327,7 @@ session_start();
           $order .= "squarefootage";
           break;
         }
+        $orderby = "";
         switch ($orderType) {
         case "ascend":
           $orderby = " ASC";;
@@ -335,7 +337,7 @@ session_start();
           break;
         }
     }
-    if (filter_input(INPUT_POST, 'inputOrder') != 'Any' && filter_input(INPUT_POST, 'orderType') != 'Any'){
+    if ($inputOrder !== null && $inputOrder !== 'Any' && $orderType !== null && $orderType !== 'Any'){
         $sql = "SELECT * FROM combinedhomes $where $order $orderby";
     } else {
         $sql = "SELECT * FROM combinedhomes $where";
@@ -343,7 +345,7 @@ session_start();
     $result = mysqli_query($conn, $sql);
     $connectsqli = $conn->query($sql);
     //display sort message
-    if($inputOrder !== 'Any' && $orderType !== 'Any') { ?>
+    if($inputOrder !== null && $inputOrder !== 'Any' && $orderType !== null && $orderType !== 'Any') { ?>
         <p style="color: white">Sorting by <?php echo $inputOrder . " " . $orderType . "ing"; ?></p>  
     <?php     
     }
@@ -366,6 +368,9 @@ session_start();
     else{
             echo "There are no results matching your search!";
     }
+    echo $sql;
+    $test = filter_input(INPUT_POST, 'inputOrder');
+    echo $test;
   $conn->close();
 ?>
 
