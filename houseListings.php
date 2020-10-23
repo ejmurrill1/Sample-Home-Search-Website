@@ -368,9 +368,6 @@ session_start();
     else{
             echo "There are no results matching your search!";
     }
-    echo $sql;
-    $test = filter_input(INPUT_POST, 'inputOrder');
-    echo $test;
   $conn->close();
 ?>
 
