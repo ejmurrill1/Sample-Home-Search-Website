@@ -1,5 +1,6 @@
 <?php
 include 'database.php';
+
 session_start();
  ?>
 <!DOCTYPE html>
@@ -293,6 +294,7 @@ session_start();
   <?php
     require 'filterOptions.php';
 
+
     if(filter_input(INPUT_POST, 'submit-search') !== null) {
     $search = mysqli_real_escape_string($conn, filter_input(INPUT_POST, 'search'));
 
@@ -356,19 +358,27 @@ session_start();
         <p style="color: white">Sorting by <?php echo $inputOrder . " " . $orderType . "ing"; ?></p>  
     <?php     
     }
-    
+    ?> 
+      
+        <div class="container mt-2">
+        <div class="row">
+    <?php
     if(!empty($connectsqli) && $connectsqli->num_rows > 0){
       while($row = mysqli_fetch_assoc($result)) { ?>
-        <div class='card mb-3' style='width: 18rem;'>
-        <img class='card-img-top' src="<?php echo $row['image-src'] ?>" alt='Avatar' style='width:100%'>
-            <div class='container'>
-                <h3><?php echo $row['address'] ?></h3>
-                <p><?php echo $row['city'] . ", " . $row['state'] . " " . $row['zipcode'] ?></p>
-                <p><?php echo $row['price'] ?></p>
-                <p><?php echo $row['numbed'] . " bd " . $row['numbath'] . " bth " . $row['squarefootage'] . " SqFt" ?></p>
-                <td><a href=detailsPage.php>More details</a></td>
+        <div class="col-md-3 col-sm-6">
+            <div class="card card-block">
+                <a href="detailsPage.php?id=<?php echo $row['address'] ?>" style="text-decoration: none; color: black;">
+                <img class='card-img-top' src="<?php echo $row['image-src'] ?>" alt='Not Found' onerror=this.src="https://d3bmimpiifbojs.cloudfront.net/wp-content/uploads/2017/04/no-image-image-1.png?x83809">
+                    <div class="card-body">
+                        <h3 class="card-title"><?php echo $row['address'] ?></h3>
+                        <p><?php echo $row['city'] . ", " . $row['state'] . " " . $row['zipcode'] ?></p>
+                        <p><?php echo $row['price'] ?></p>
+                        <p><?php echo $row['numbed'] . " bd " . $row['numbath'] . " bth " . $row['squarefootage'] . " SqFt" ?></p>
+                    </div>
+                </a>
             </div>
         </div>
+
     <?php
       }
     }
@@ -378,8 +388,11 @@ session_start();
     }
   $conn->close();
 ?>
-
         </div>
+        </div>
+   
+        
+		
     </div>
 </body>
 </html>
