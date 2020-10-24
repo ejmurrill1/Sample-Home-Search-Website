@@ -74,6 +74,9 @@ div [class^="col-"]{
 
 .card-title{  
   font-size:20px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   transition:1s;
   cursor:pointer;
 }
