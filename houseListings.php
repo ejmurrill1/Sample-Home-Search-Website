@@ -1,5 +1,6 @@
 <?php
 include 'database.php';
+
 session_start();
  ?>
 <!DOCTYPE html>
@@ -293,6 +294,7 @@ session_start();
   <?php
     require 'filterOptions.php';
 
+
     if(filter_input(INPUT_POST, 'submit-search') !== null) {
     $search = mysqli_real_escape_string($conn, filter_input(INPUT_POST, 'search'));
 
@@ -345,9 +347,9 @@ session_start();
         }
     }
     if ($inputOrder !== null && $inputOrder !== 'Any' && $orderType !== null && $orderType !== 'Any'){
-        $sql = "SELECT * FROM combinedhomes $where $order $orderby";
+        $sql = "SELECT * FROM cis4290 $where $order $orderby";
     } else {
-        $sql = "SELECT * FROM combinedhomes $where";
+        $sql = "SELECT * FROM cis4290 $where";
     }
     $result = mysqli_query($conn, $sql);
     $connectsqli = $conn->query($sql);
@@ -360,13 +362,13 @@ session_start();
     if(!empty($connectsqli) && $connectsqli->num_rows > 0){
       while($row = mysqli_fetch_assoc($result)) { ?>
         <div class='card mb-3' style='width: 18rem;'>
-        <img class='card-img-top' src="<?php echo $row['image-src'] ?>" alt='Avatar' style='width:100%'>
+        <a href=detailsPage.php?id=[address]><img class='card-img-top' src="<?php echo $row['image-src'] ?>" alt='Avatar' style='width:100%'></a>
             <div class='container'>
                 <h3><?php echo $row['address'] ?></h3>
                 <p><?php echo $row['city'] . ", " . $row['state'] . " " . $row['zipcode'] ?></p>
                 <p><?php echo $row['price'] ?></p>
                 <p><?php echo $row['numbed'] . " bd " . $row['numbath'] . " bth " . $row['squarefootage'] . " SqFt" ?></p>
-                <td><a href=detailsPage.php>More details</a></td>
+	  <p><a href=detailsPage.php?id=$row[address]>Details</a></p>
             </div>
         </div>
     <?php
@@ -380,6 +382,7 @@ session_start();
 ?>
 
         </div>
+		
     </div>
 </body>
 </html>
