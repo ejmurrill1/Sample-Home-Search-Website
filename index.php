@@ -1,3 +1,6 @@
+<?php
+include 'database.php';
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +20,7 @@
     <div class="jumbotron text-center">
       <h1>Search for a Home</h1>
     </div>
-    
+
     <div class="container">
     <form action="houseListings.php" method="POST">
         <div class="input-group mb-4">
@@ -28,6 +31,35 @@
         </div>
     </form>
     </div>
- 
+
+  <div class="container">
+  <div class="card-deck" style='margin-bottom: 80px'>
+    <?php
+    require 'filterOptions.php';
+
+    $sql = "SELECT * FROM combinedhomes ORDER BY Rand() limit 3";
+    $result = mysqli_query($conn, $sql);
+    $queryResults = mysqli_num_rows($result);
+
+    if($queryResults > 0){
+      while($row = mysqli_fetch_assoc($result)) { ?>
+        <div class='card mb-3' style='width: 18rem;'>
+        <img class='card-img-top' src="<?php echo $row['image-src'] ?>" alt='Avatar' style='width:100%'>
+            <div class='container'>
+                <h3><?php echo $row['address'] ?></h3>
+                <p><?php echo $row['city'] . ", " . $row['state'] . " " . $row['zipcode'] ?></p>
+                <p><?php echo $row['price'] ?></p>
+                <p><?php echo $row['numbed'] . " bd " . $row['numbath'] . " bth " . $row['squarefootage'] . " SqFt" ?></p>
+            </div>
+        </div>
+      <?php
+}
+}
+
+  $conn->close();
+  ?>
+</div>
+</div>
+
 </body>
 </html>
