@@ -366,7 +366,7 @@ session_start();
                 <p><?php echo $row['city'] . ", " . $row['state'] . " " . $row['zipcode'] ?></p>
                 <p><?php echo $row['price'] ?></p>
                 <p><?php echo $row['numbed'] . " bd " . $row['numbath'] . " bth " . $row['squarefootage'] . " SqFt" ?></p>
-                <td><a href=detailsPage.php?id=$row[id]>More details</a></td>
+                <td><a href=detailsPage.php>More details</a></td>
             </div>
         </div>
     <?php
