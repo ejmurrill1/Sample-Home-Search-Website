@@ -44,7 +44,7 @@ include 'database.php';
     if($queryResults > 0){
       while($row = mysqli_fetch_assoc($result)) { ?>
         <div class='card mb-3' style='width: 18rem;'>
-        <img class='card-img-top' src="<?php echo $row['image-src'] ?>" alt='Avatar' style='width:100%'>
+        <img class='card-img-top' src="<?php echo $row['image-src'] ?>" alt='Not Found' onerror=this.src="https://d3bmimpiifbojs.cloudfront.net/wp-content/uploads/2017/04/no-image-image-1.png?x83809">
             <div class='container'>
                 <h3><?php echo $row['address'] ?></h3>
                 <p><?php echo $row['city'] . ", " . $row['state'] . " " . $row['zipcode'] ?></p>
