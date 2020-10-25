@@ -10,6 +10,7 @@
   </div>
 
 </head>
+<TITLE>Macro Homes - Registration</TITLE>
 <body>
 
   <form action = "Include/signup.inc.php" method="POST">
