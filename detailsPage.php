@@ -42,7 +42,7 @@ $address=$_GET['address'];
 
 require "database.php"; 
 
-$result="SELECT *  FROM cis4290 where address=?";
+$result="SELECT *  FROM combinedhomes where address=?";
 
 if($stmt = $connectsqli->prepare($result)){
   $stmt->bind_param('i',$address);
