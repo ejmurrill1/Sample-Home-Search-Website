@@ -10,6 +10,7 @@ include 'database.php';
     <link rel="stylesheet" href="style.css">
 
 </head>
+<TITLE>Macro Homes</TITLE>
 <body>
 
     <div id="navbar">
