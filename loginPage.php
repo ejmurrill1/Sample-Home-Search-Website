@@ -20,7 +20,7 @@ if (! empty($_POST["login-btn"])) {
 ?>
 <HTML>
 <HEAD>
-<TITLE>Login</TITLE>
+<TITLE>Macro Homes - Login</TITLE>
 <link href="assets/css/phppot-style.css" type="text/css"
 	rel="stylesheet" />
 <link href="assets/css/user-registration.css" type="text/css"
