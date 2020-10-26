@@ -1,5 +1,6 @@
 <?php
 include 'database.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -36,15 +37,19 @@ include 'database.php';
 				</div>
 				
 				  </div>
+				  </div>
 <?php
-$address=$_GET['address'];
+
+require 'filterOptions.php';
+
+$address=$_GET[];
 
 
-require "database.php"; 
 
-$result="SELECT *  FROM combinedhomes where address=?";
 
-if($stmt = $connectsqli->prepare($result)){
+$result="SELECT *  FROM cis4290 where address=?";
+
+if($stmt = $result->prepare($result)){
   $stmt->bind_param('i',$address);
   $stmt->execute();
 
