@@ -20,9 +20,65 @@ include 'database.php';
     </div>
     <div class="jumbotron text-center">
       <h2>Macro Homes</h2>
-      <h1>Search for a Home</h1>
     </div>
+	
+	<h1 style="text-align: center">Featured Cities</h1>
 
+	<div class="container">
+	  <div class="row row-cols-3">
+		<div class="col">
+		  <div class="card bg-dark text-white">
+			<img src="https://media-cdn.trulia-local.com/neighborhood-media-service-prod/ca/claremont/north-claremont/2178-ca_la_north_claremont_165168_329_v3_1800x_cfit.jpg" width=100% height=300px style="object-fit: cover" class="card-img" alt="Claremont">
+			<div class="card-img-overlay">
+			  <h5 class="card-title">Claremont, CA</h5>
+			</div>
+		  </div>
+		</div>
+		<div class="col">
+		  <div class="card bg-dark text-white">
+			<img src="https://www.uncovercolorado.com/wp-content/uploads/2018/10/littleton-co-neighborhood-ken-caryl2-1440x810.jpg" width=100% height=300px style="object-fit: cover" class="card-img" alt="Littleton">
+			<div class="card-img-overlay">
+			  <h5 class="card-title">Littleton, CO</h5>
+			</div>
+		  </div>
+		</div>
+		<div class="col">
+		  <div class="card bg-dark text-white">
+			<img src="https://images1.apartments.com/i2/SKSI4W8rfqgO7YeK9yXmAzRymt3CoCVW-_0fmdujJtw/111/the-reserve-at-glenville-glenville-ny-community.jpg" width=100% height=300px style="object-fit: cover" class="card-img" alt="Glenville">
+			<div class="card-img-overlay">
+			  <h5 class="card-title">Glenville, NY</h5>
+			</div>
+		  </div>
+		</div>
+		<div class="col">
+		  <div class="card bg-dark text-white">
+			<img src="https://www.ge.com/research/sites/default/files/2018-11/niskayuna-new-york-hero.jpg" width=100% height=300px style="object-fit: cover" class="card-img" alt="Niskayuna">
+			<div class="card-img-overlay">
+			  <h5 class="card-title">Niskayuna, NY</h5>
+			</div>
+		  </div>
+		</div>
+		<div class="col">
+		  <div class="card bg-dark text-white">
+			<img src="http://media.bizj.us/view/img/4737441/schenectady-misc-12-2014-01*1200xx6000-3375-0-313.jpg" width=100% height=300px style="object-fit: cover" class="card-img" alt="Schenectady">
+			<div class="card-img-overlay">
+			  <h5 class="card-title">Schenectady, NY</h5>
+			</div>
+		  </div>
+		</div>
+		<div class="col">
+		  <div class="card bg-dark text-white">
+			<img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/West_Haven_Main_and_Campbell_110.JPG" width=100% height=300px style="object-fit: cover" class="card-img" alt="West Haven">
+			<div class="card-img-overlay">
+			  <h5 class="card-title">West Haven, CT</h5>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	<br>
+	
+	<h1 style="text-align: center">Search for a Home</h1>
     <div class="container">
     <form action="houseListings.php" method="POST">
         <div class="input-group mb-4">
@@ -312,118 +368,6 @@ include 'database.php';
   ?>
 </div>
 </div>
-    
-<h1 style="text-align: center">Featured Cities</h1>
-
-<div class="container">
-  <div class="row row-cols-3">
-    <div class="col">
-      <div class="card bg-dark text-white">
-        <img src="https://media-cdn.trulia-local.com/neighborhood-media-service-prod/ca/claremont/north-claremont/2178-ca_la_north_claremont_165168_329_v3_1800x_cfit.jpg" width=100% height=300px style="object-fit: cover" class="card-img" alt="Claremont">
-        <div class="card-img-overlay">
-          <h5 class="card-title">Claremont, CA</h5>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card bg-dark text-white">
-        <img src="https://www.uncovercolorado.com/wp-content/uploads/2018/10/littleton-co-neighborhood-ken-caryl2-1440x810.jpg" width=100% height=300px style="object-fit: cover" class="card-img" alt="Littleton">
-        <div class="card-img-overlay">
-          <h5 class="card-title">Littleton, CO</h5>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card bg-dark text-white">
-        <img src="https://images1.apartments.com/i2/SKSI4W8rfqgO7YeK9yXmAzRymt3CoCVW-_0fmdujJtw/111/the-reserve-at-glenville-glenville-ny-community.jpg" width=100% height=300px style="object-fit: cover" class="card-img" alt="Glenville">
-        <div class="card-img-overlay">
-          <h5 class="card-title">Glenville, NY</h5>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card bg-dark text-white">
-        <img src="https://www.ge.com/research/sites/default/files/2018-11/niskayuna-new-york-hero.jpg" width=100% height=300px style="object-fit: cover" class="card-img" alt="Niskayuna">
-        <div class="card-img-overlay">
-          <h5 class="card-title">Niskayuna, NY</h5>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card bg-dark text-white">
-        <img src="http://media.bizj.us/view/img/4737441/schenectady-misc-12-2014-01*1200xx6000-3375-0-313.jpg" width=100% height=300px style="object-fit: cover" class="card-img" alt="Schenectady">
-        <div class="card-img-overlay">
-          <h5 class="card-title">Schenectady, NY</h5>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card bg-dark text-white">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/West_Haven_Main_and_Campbell_110.JPG" width=100% height=300px style="object-fit: cover" class="card-img" alt="West Haven">
-        <div class="card-img-overlay">
-          <h5 class="card-title">West Haven, CT</h5>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<br>
-
-<h1 style="text-align: center">Featured Cities</h1>
-
-<div class="container">
-  <div class="row row-cols-3">
-    <div class="col">
-      <div class="card bg-dark text-white">
-        <img src="https://media-cdn.trulia-local.com/neighborhood-media-service-prod/ca/claremont/north-claremont/2178-ca_la_north_claremont_165168_329_v3_1800x_cfit.jpg" width=100% height=300px style="object-fit: cover" class="card-img" alt="Claremont">
-        <div class="card-img-overlay">
-          <h5 class="card-title">Claremont, CA</h5>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card bg-dark text-white">
-        <img src="https://www.uncovercolorado.com/wp-content/uploads/2018/10/littleton-co-neighborhood-ken-caryl2-1440x810.jpg" width=100% height=300px style="object-fit: cover" class="card-img" alt="Littleton">
-        <div class="card-img-overlay">
-          <h5 class="card-title">Littleton, CO</h5>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card bg-dark text-white">
-        <img src="https://images1.apartments.com/i2/SKSI4W8rfqgO7YeK9yXmAzRymt3CoCVW-_0fmdujJtw/111/the-reserve-at-glenville-glenville-ny-community.jpg" width=100% height=300px style="object-fit: cover" class="card-img" alt="Glenville">
-        <div class="card-img-overlay">
-          <h5 class="card-title">Glenville, NY</h5>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card bg-dark text-white">
-        <img src="https://www.ge.com/research/sites/default/files/2018-11/niskayuna-new-york-hero.jpg" width=100% height=300px style="object-fit: cover" class="card-img" alt="Niskayuna">
-        <div class="card-img-overlay">
-          <h5 class="card-title">Niskayuna, NY</h5>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card bg-dark text-white">
-        <img src="http://media.bizj.us/view/img/4737441/schenectady-misc-12-2014-01*1200xx6000-3375-0-313.jpg" width=100% height=300px style="object-fit: cover" class="card-img" alt="Schenectady">
-        <div class="card-img-overlay">
-          <h5 class="card-title">Schenectady, NY</h5>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card bg-dark text-white">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/West_Haven_Main_and_Campbell_110.JPG" width=100% height=300px style="object-fit: cover" class="card-img" alt="West Haven">
-        <div class="card-img-overlay">
-          <h5 class="card-title">West Haven, CT</h5>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<br>
 
 </body>
 </html>
