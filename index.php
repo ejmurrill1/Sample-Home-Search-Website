@@ -1,18 +1,14 @@
 <?php
 include 'database.php';
- ?>
+?>
 <!DOCTYPE html>
 <html>
-<head>
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
-
-</head>
-<TITLE>Macro Homes</TITLE>
-<body>
-
+    <?php include 'header.php'; ?>   
+    <body>
+        <div class="jumbotron text-center">
+            <h1>Search for a Home</h1>
+        </div>
+ 
     <div id="navbar">
         <a href="index.php">Home</a>
         <a href="loginPage.php">Login</a>
@@ -80,7 +76,6 @@ include 'database.php';
 	<br>
 	
 	<h1 style="text-align: center">Search for a Home</h1>
-=======
     <div class="container-fluid">
         <div class="row mb-5">
             <div class="col-lg-8 mx-auto bg-white p-5 rounded shadow">
@@ -119,7 +114,7 @@ include 'database.php';
   $conn->close();
   ?>
 </div>
-</div>
+      </div>
 
-</body>
+    </body>
 </html>
