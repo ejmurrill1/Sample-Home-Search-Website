@@ -146,8 +146,6 @@ session_start();
             echo "There are no results matching your search!";
     }
   $conn->close();
-  echo $endingLat;
-  echo $endingLong;
 ?>
         </div>
     </div>
