@@ -362,7 +362,7 @@ session_start();
       while($row = mysqli_fetch_assoc($result)) { ?>
         <div class='card mb-3' style='width: 18rem;'>
           <div class="card card-block">
-                <a href="detailsPage.php?id=<?php echo $row['id']>$row['address'] ?>" style="text-decoration: none; color: black;">
+                <a href="detailsPage.php?id=<?php echo $row['id'] ?>" style="text-decoration: none; color: black;">
                 <img class='card-img-top' src="<?php echo $row['image-src'] ?>" alt='Not Found' onerror=this.src="https://d3bmimpiifbojs.cloudfront.net/wp-content/uploads/2017/04/no-image-image-1.png?x83809"
             <div class='container'>
                 <h3><?php echo $row['address'] ?></h3>
