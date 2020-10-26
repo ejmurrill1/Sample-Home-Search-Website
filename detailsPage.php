@@ -40,7 +40,7 @@ include 'database.php';
 				  </div>
 <?php
 
-include 'filterOptions.php';
+
 
 $id=$_GET['id'];
 
@@ -52,16 +52,27 @@ $id=$_GET['id'];
 
 $sql="SELECT *  FROM cis4290 where id=?";
 if ( $connectsqli = $conn->prepare($sql)){
-	$connectsqli->bind_param('i',$id);
+	$connectsqli->bind_param('d',$id);
+	/*execute prepared statement*/
+	
 	$connectsqli->execute();
 	$result=$connectsqli->get_result();
 	$row=$result->fetch_object();
 	
+	?>
+	
 
-echo " Address: $row->address,$row->state";
-echo " Zip Code: $row->zipcode";
+
+<?php
+echo "Address: $row->address";
+echo " $row->state";
+echo "  $row->zipcode";
+
 echo " Price: $row->price";
 
+
+
+           
 }
 
 ?>
