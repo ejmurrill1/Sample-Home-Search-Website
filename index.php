@@ -3,23 +3,11 @@ include 'database.php';
  ?>
 <!DOCTYPE html>
 <html>
-<head>
+    
+<?php include 'header.php'; ?>     
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
-
-</head>
-<TITLE>Macro Homes</TITLE>
 <body>
-
-    <div id="navbar">
-        <a href="index.php">Home</a>
-        <a href="loginPage.php">Login</a>
-        <a href="registrationPage.php">Registration</a>
-    </div>
     <div class="jumbotron text-center">
-      <h2>Macro Homes</h2>
       <h1>Search for a Home</h1>
     </div>
 
