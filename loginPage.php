@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html>
+    
+<?php include 'header.php'; ?>    
+    
 <head>
-  <link rel="stylesheet" href="style.css">
-
-  <div id="navbar">
-   <a href="index.php">Home</a>
-   <a href="loginPage.php">Login</a>
-   <a href="registrationPage.php">Registration</a>
-  </div>
 
 <?php
 use Phppot\Member;
