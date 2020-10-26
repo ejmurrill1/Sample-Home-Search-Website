@@ -71,7 +71,6 @@ echo "  $row->zipcode";
 echo " Price: $row->price";
 
 
-
            
 }
 
