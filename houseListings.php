@@ -8,7 +8,17 @@ session_start();
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
-
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    
+    <style>
+       #map {
+         height: 400px;
+         /* The height is 400 pixels */
+         width: 100%;
+         /* The width is the width of the web page */
+       }
+    </style>
 </head>
 <TITLE>Macro Homes - Search Results</TITLE>
 <body>
@@ -30,7 +40,7 @@ session_start();
     <div class="col-lg-8 mx-auto bg-white p-5 rounded shadow">
     <?php require_once 'searchForm.php'; ?>
     </div>
-    </div>
+</div>
   
 
   <?php
@@ -47,7 +57,7 @@ session_start();
     } else if(count($conditions) > 1) {
         $where .= ' AND ' . implode(' AND ', $conditions);
     }
-    
+    $_SESSION['varWhere'] = $where;
     
     if($inputOrder !== 'Any'){
         $order = "ORDER BY ";
@@ -102,6 +112,10 @@ session_start();
     ?>
     <div class="container mt-2">
         <div class="row">
+           
+                <div id="map"></div>
+           
+            
     <?php
       if(!empty($connectsqli) && $connectsqli->num_rows > 0){
       while($row = mysqli_fetch_assoc($result)) { ?>
@@ -112,12 +126,18 @@ session_start();
                     <div class="card-body">
                         <h3 class="card-title"><?php echo $row['address'] ?></h3>
                         <p><?php echo $row['city'] . ", " . $row['state'] . " " . $row['zipcode'] ?></p>
-                        <p><?php echo $row['price'] ?></p>
-                        <p><?php echo $row['numbed'] . " bd " . $row['numbath'] . " bth " . $row['squarefootage'] . " SqFt" ?></p>
+                        <p><?php echo '$' . $row['price'] ?></p>
+                        <p><?php echo $row['numbed'] . " bd " . $row['numbath'] . " bth " . $row['squarefootage'] . " SqFt" ?></p>                        
                     </div>
                 </a>
             </div>
         </div>
+            <div style="display: none;">
+                <?php 
+                $endingLat = $row['Latitude'];
+                $endingLong = $row['Longitude'];
+                ?>
+            </div>
     <?php
       }
     }
@@ -126,11 +146,88 @@ session_start();
             echo "There are no results matching your search!";
     }
   $conn->close();
+  echo $endingLat;
+  echo $endingLong;
 ?>
         </div>
     </div>
 
         </div>
     </div>
+    <script>
+    var customLabel = {
+      Homes: {
+        label: 'H'
+      }
+
+    };
+
+      function initMap() {
+       var map = new google.maps.Map(document.getElementById('map'), {
+        center: new google.maps.LatLng(<?php echo $endingLat; ?>, <?php echo $endingLong; ?>),
+        zoom: 12
+      });
+      var infoWindow = new google.maps.InfoWindow;
+
+        // Change this depending on the name of your PHP or XML file
+        downloadUrl('googleMarkers.php', function(data) {
+          var xml = data.responseXML;
+          var markers = xml.documentElement.getElementsByTagName('marker');
+          Array.prototype.forEach.call(markers, function(markerElem) {
+            var address = markerElem.getAttribute('address');
+            var city = markerElem.getAttribute('city');
+            var state = markerElem.getAttribute('state');
+            var zipcode = markerElem.getAttribute('zipcode');
+            var type = markerElem.getAttribute('Type');
+            var point = new google.maps.LatLng(
+                parseFloat(markerElem.getAttribute('Latitude')),
+                parseFloat(markerElem.getAttribute('Longitude')));
+
+            var infowincontent = document.createElement('div');
+            var strong = document.createElement('strong');
+            strong.textContent = address
+            infowincontent.appendChild(strong);
+            infowincontent.appendChild(document.createElement('br'));
+
+            var strAddress = city + ", " + state + ", " + zipcode;
+            var text = document.createElement('text');
+            text.textContent =strAddress
+            infowincontent.appendChild(text);
+            var icon = customLabel[type] || {};
+            var marker = new google.maps.Marker({
+              map: map,
+              position: point,
+              label: icon.label
+            });
+            marker.addListener('click', function() {
+              infoWindow.setContent(infowincontent);
+              infoWindow.open(map, marker);
+            });
+          });
+        });
+      }
+
+
+    function downloadUrl(url, callback) {
+      var request = window.ActiveXObject ?
+          new ActiveXObject('Microsoft.XMLHTTP') :
+          new XMLHttpRequest;
+
+      request.onreadystatechange = function() {
+        if (request.readyState == 4) {
+          request.onreadystatechange = doNothing;
+          callback(request, request.status);
+        }
+      };
+
+      request.open('GET', url, true);
+      request.send(null);
+    }
+
+    function doNothing() {}
+  </script>
+  <script defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1ylab17gj6jipoV3CfXylv9tX8WELuKE&callback=initMap">
+  </script>
 </body>
 </html>
