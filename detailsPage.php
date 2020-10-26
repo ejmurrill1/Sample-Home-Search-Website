@@ -40,35 +40,31 @@ include 'database.php';
 				  </div>
 <?php
 
-require 'filterOptions.php';
+include 'filterOptions.php';
 
-$address=$_GET[];
-
-
+$id=$_GET['id'];
 
 
-$result="SELECT *  FROM cis4290 where address=?";
 
-if($stmt = $result->prepare($result)){
-  $stmt->bind_param('i',$address);
-  $stmt->execute();
 
- $result = $stmt->get_result();
- echo "No of records : ".$result->num_rows."<br>";
- $row=$result->fetch_object();
- echo "<table>";
-echo "<tr ><td><b>Address</b></td><td>$row->address</td></tr>
-<tr><td><b>Class</b></td><td>$row->class</td></tr>
-<tr ><td><b>Mark</b></td><td>$row->mark</td></tr>
-<tr><td><b>Address</b></td><td>$row->address</td></tr>
-<tr ><td><b>Image</b></td><td>$row->img</td></tr>
-";
-echo "</table>";
-}else{
-echo $connection->error;
+
+
+
+$sql="SELECT *  FROM cis4290 where id=?";
+if ( $connectsqli = $conn->prepare($sql)){
+	$connectsqli->bind_param('i',$id);
+	$connectsqli->execute();
+	$result=$connectsqli->get_result();
+	$row=$result->fetch_object();
+	
+
+echo " Address: $row->address,$row->state";
+echo " Zip Code: $row->zipcode";
+echo " Price: $row->price";
+
 }
-?>
 
+?>
 		</div>
 		</div>
 		
