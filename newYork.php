@@ -22,18 +22,18 @@ include 'database.php';
         <a href="registrationPage.php">Registration</a>
     </div>
 <!--Nav-->
-			<nav class="horizontalMenu clearfix d-md-flex">
+				<nav class="horizontalMenu clearfix d-md-flex">
 						<ul class="horizontalMenu-list">
 						<li aria-haspopup="true"> <a href="california.php"> California</a></li>
 						<li aria-haspopup="true"> <a href="newYork.php"> New York</a></li>
-							<li aria-haspopup="true"><a href="Conneticut.php">Conneticut</a></li>
+							<li aria-haspopup="true"><a href="conneticut.php">Conneticut</a></li>
 							
 											
 												</nav>
 <div class="container-fluid">
     <div class="row py-5">
         <div class="col-lg-9 mx-auto text-center">
-            <h1 class="display-4">Homes in California</h1>
+            <h1 class="display-4">Homes in New York</h1>
       </div>
 				</div>
 				
@@ -51,7 +51,7 @@ include 'database.php';
     <?php
     require 'filterOptions.php';
 
-    $sql = "SELECT * FROM cis4290 WHERE  state='ca' ";
+    $sql = "SELECT * FROM cis4290 WHERE  state='ny' ";
     $result = mysqli_query($conn, $sql);
     $queryResults = mysqli_num_rows($result);
 	
