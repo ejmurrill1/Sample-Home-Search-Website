@@ -6,7 +6,7 @@ include 'database.php';
     <?php include 'header.php'; ?>   
     <body>
         <div class="jumbotron text-center">
-            <h1>Search for a Home</h1>
+            <h1>Marco Homes</h1>
         </div>
 	
 	<h1 style="text-align: center">Featured Cities</h1>
