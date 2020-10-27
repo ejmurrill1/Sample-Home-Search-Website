@@ -8,15 +8,6 @@ include 'database.php';
         <div class="jumbotron text-center">
             <h1>Search for a Home</h1>
         </div>
- 
-    <div id="navbar">
-        <a href="index.php">Home</a>
-        <a href="loginPage.php">Login</a>
-        <a href="registrationPage.php">Registration</a>
-    </div>
-    <div class="jumbotron text-center">
-      <h2>Macro Homes</h2>
-    </div>
 	
 	<h1 style="text-align: center">Featured Cities</h1>
 
