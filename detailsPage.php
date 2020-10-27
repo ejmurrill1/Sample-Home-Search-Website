@@ -24,9 +24,8 @@ include 'database.php';
 					<nav class="horizontalMenu clearfix d-md-flex">
 						<ul class="horizontalMenu-list">
 						<li aria-haspopup="true"> <a href="california.php"> California</a></li>
-						
-							<li aria-haspopup="true"><a href="">New York</a></li>
-							<li aria-haspopup="true"><a href="">Conneticut</a></li>
+						<li aria-haspopup="true"> <a href="newYork.php"> New York</a></li>
+							<li aria-haspopup="true"><a href="Conneticut.php">Conneticut</a></li>
 							
 											
 												</nav>
@@ -45,7 +44,7 @@ include 'database.php';
 
 $id=$_GET['id'];
 
-$sql="SELECT *  FROM cis4290 where id=?";
+$sql="SELECT *  FROM combinedhomes where id=?";
 if ( $connectsqli = $conn->prepare($sql)){
 	$connectsqli->bind_param('d',$id);
 	/*execute prepared statement*/
