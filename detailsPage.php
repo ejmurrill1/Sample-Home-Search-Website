@@ -1,14 +1,16 @@
 <?php
 include 'database.php';
+
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
-	
+	    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Merriweather|Monserrat">
 	
 </head>
 <body>
@@ -36,33 +38,61 @@ include 'database.php';
 				</div>
 				
 				  </div>
+				  </div>
 <?php
-$address=$_GET['address'];
 
 
-require "database.php"; 
 
-$result="SELECT *  FROM cis4290 where address=?";
+$id=$_GET['id'];
 
-if($stmt = $connectsqli->prepare($result)){
-  $stmt->bind_param('i',$address);
-  $stmt->execute();
+$sql="SELECT *  FROM cis4290 where id=?";
+if ( $connectsqli = $conn->prepare($sql)){
+	$connectsqli->bind_param('d',$id);
+	/*execute prepared statement*/
+	
+	$connectsqli->execute();
+	$result=$connectsqli->get_result();
+	$row=$result->fetch_object();
+	
+	?>
+	
+<h4>Home Basics</h4>
 
- $result = $stmt->get_result();
- echo "No of records : ".$result->num_rows."<br>";
- $row=$result->fetch_object();
- echo "<table>";
-echo "<tr ><td><b>Address</b></td><td>$row->address</td></tr>
-<tr><td><b>Class</b></td><td>$row->class</td></tr>
-<tr ><td><b>Mark</b></td><td>$row->mark</td></tr>
-<tr><td><b>Address</b></td><td>$row->address</td></tr>
-<tr ><td><b>Image</b></td><td>$row->img</td></tr>
-";
-echo "</table>";
-}else{
-echo $connection->error;
+<h5> <?php
+ 
+echo " Price: $row->price";?> </h5>
+<br>
+<?php
+echo "Address: $row->address ";
+echo "$row->city";
+echo " $row->state,";
+echo "  $row->zipcode"; ?>
+
+<br>
+<?php
+echo  "Number of beds: $row->numbed  ";
+echo "Number of restrooms: $row->numbath - ";  ?>
+<br> <br>
+<h4> About <?php echo" $row->city ";?> </h4>
+<?php 
+echo "Population: $row->population - "; 
+
+echo "Median Age of Residents: $row->MedianAge - " ;
+echo "Median Household Income: $row->MedianHouseholdIncome - "; 
+echo" Residents with a Bachelor's Degree: $row->BachelorDegree -  ";
+
+echo "Property Crime Index: $row->PropertyCrimeIndex - ";
+
+echo " Total Housing Units: $row->TotalHousingUnits - ";
+echo " Owner Occupied Housing Units: $row->OwnerOccupiedHUs" ;
+
+echo "Population Growth Rate: $row-> PopulationGrowthRate - ";
+echo "  Air Quality Index: $row-> airquality - ";
+
+          
 }
 ?>
+
 
 		</div>
 		</div>
