@@ -193,7 +193,7 @@ session_start();
               label: icon.label
             });
             marker.addListener('click', function() {
-              infoWindow.setContent("<img class='card-img-top' src='" + image + "'>" +'<a href="detailsPage.php?id=' + id +'" style="text-decoration: none; color: black" class="font-weight-bold";>'+ infowincontent + '</a>');
+              infoWindow.setContent('<a href="detailsPage.php?id=' + id + '"><img class="card-img-top" src="' + image + '"></a>' +'<a href="detailsPage.php?id=' + id +'" style="text-decoration: none; color: black" class="font-weight-bold";>'+ infowincontent + '</a>');
               infoWindow.open(map, marker);
             });
           });
