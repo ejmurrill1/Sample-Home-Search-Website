@@ -172,6 +172,8 @@ session_start();
           var xml = data.responseXML;
           var markers = xml.documentElement.getElementsByTagName('marker');
           Array.prototype.forEach.call(markers, function(markerElem) {
+            var id = markerElem.getAttribute('id');
+            var image = markerElem.getAttribute('image-src');
             var address = markerElem.getAttribute('address');
             var city = markerElem.getAttribute('city');
             var state = markerElem.getAttribute('state');
@@ -180,17 +182,10 @@ session_start();
             var point = new google.maps.LatLng(
                 parseFloat(markerElem.getAttribute('Latitude')),
                 parseFloat(markerElem.getAttribute('Longitude')));
-
-            var infowincontent = document.createElement('div');
-            var strong = document.createElement('strong');
-            strong.textContent = address
-            infowincontent.appendChild(strong);
-            infowincontent.appendChild(document.createElement('br'));
-
-            var strAddress = city + ", " + state + ", " + zipcode;
-            var text = document.createElement('text');
-            text.textContent =strAddress
-            infowincontent.appendChild(text);
+                
+            <?php $id; ?>
+            var strAddress = address + " " + city + ", " + state + ", " + zipcode;
+            var infowincontent =strAddress;
             var icon = customLabel[type] || {};
             var marker = new google.maps.Marker({
               map: map,
@@ -198,7 +193,7 @@ session_start();
               label: icon.label
             });
             marker.addListener('click', function() {
-              infoWindow.setContent(infowincontent);
+              infoWindow.setContent("<img class='card-img-top' src='" + image + "'>" +'<a href="detailsPage.php?id=' + id +'" style="text-decoration: none; color: black" class="font-weight-bold";>'+ infowincontent + '</a>');
               infoWindow.open(map, marker);
             });
           });
