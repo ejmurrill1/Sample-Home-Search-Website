@@ -32,6 +32,8 @@ $ind=0;
 while ($row = @mysqli_fetch_assoc($result)){
   // Add to XML document node
   echo '<marker ';
+  echo 'id="' . parseToXML($row['id']) . '" ';
+  echo 'image-src="' . parseToXML($row['image-src']) . '" ';
   echo 'address="' . parseToXML($row['address']) . '" ';
   echo 'city="' . parseToXML($row['city']) . '" ';
   echo 'state="' . parseToXML($row['state']) . '" ';
