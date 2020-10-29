@@ -85,8 +85,8 @@ echo "Property Crime Index: $row->PropertyCrimeIndex - ";
 echo " Total Housing Units: $row->TotalHousingUnits - ";
 echo " Owner Occupied Housing Units: $row->OwnerOccupiedHUs" ;
 
-echo "Population Growth Rate: $row-> PopulationGrowthRate - ";
-echo "  Air Quality Index: $row-> airquality - ";
+echo "Population Growth Rate: $row->PopulationGrowthRate - ";
+echo "  Air Quality Index: $row->airquality - ";
 
           
 }
