@@ -13,7 +13,7 @@ include 'database.php';
           href="https://fonts.googleapis.com/css?family=Merriweather|Monserrat">
 
 </head>
-<TITLE>Macro Homes</TITLE>
+<TITLE>Macro Homes: Homes in California</TITLE>
 <body>
 
 <div id="navbar"/>
@@ -51,7 +51,7 @@ include 'database.php';
     <?php
     require 'filterOptions.php';
 
-    $sql = "SELECT * FROM cis4290 WHERE  state='ca' ";
+    $sql = "SELECT * FROM combinedhomes WHERE  state='ca' ";
     $result = mysqli_query($conn, $sql);
     $queryResults = mysqli_num_rows($result);
 	
