@@ -13,6 +13,7 @@ include 'database.php';
           href="https://fonts.googleapis.com/css?family=Merriweather|Monserrat">
 	
 </head>
+<TITLE>Macro Homes: Details Page</TITLE>
 <body>
 
 <div id="navbar"/>
@@ -21,14 +22,15 @@ include 'database.php';
         <a href="registrationPage.php">Registration</a>
     </div>
 <!--Nav-->
-					<nav class="horizontalMenu clearfix d-md-flex">
+			<nav class="horizontalMenu clearfix d-md-flex">
 						<ul class="horizontalMenu-list">
 						<li aria-haspopup="true"> <a href="california.php"> California</a></li>
 						<li aria-haspopup="true"> <a href="newYork.php"> New York</a></li>
-							<li aria-haspopup="true"><a href="Conneticut.php">Conneticut</a></li>
-							
+							<li aria-haspopup="true"><a href="conneticut.php">Conneticut</a></li>
 											
 												</nav>
+<!--/Nav-->
+
 <div class="container-fluid">
     <div class="row py-5">
         <div class="col-lg-9 mx-auto text-center">
@@ -85,8 +87,8 @@ echo "Property Crime Index: $row->PropertyCrimeIndex - ";
 echo " Total Housing Units: $row->TotalHousingUnits - ";
 echo " Owner Occupied Housing Units: $row->OwnerOccupiedHUs" ;
 
-echo "Population Growth Rate: $row->PopulationGrowthRate - ";
-echo "  Air Quality Index: $row->airquality - ";
+echo "Population Growth Rate: $row-> PopulationGrowthRate - ";
+echo "  Air Quality Index: $row-> airquality - ";
 
           
 }
