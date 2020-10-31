@@ -45,9 +45,7 @@ session_start();
 
   <?php
     require 'filterOptions.php';
-
-    if(filter_input(INPUT_POST, 'submit-search') !== null) {
-    $search = mysqli_real_escape_string($conn, filter_input(INPUT_POST, 'search'));
+    $search = mysqli_real_escape_string($conn, filter_input(INPUT_GET, 'search'));
 
     $where="WHERE (address = '$search' OR state = '$search' OR zipcode = '$search' OR city = '$search')";
     
@@ -141,7 +139,7 @@ session_start();
     <?php
       }
     }
-  }
+  
     else{
             echo "There are no results matching your search!";
     }
@@ -193,7 +191,8 @@ session_start();
               label: icon.label
             });
             marker.addListener('click', function() {
-              infoWindow.setContent("<img class='card-img-top' src='" + image + "'>" +'<a href="detailsPage.php?id=' + id +'" style="text-decoration: none; color: black" class="font-weight-bold";>'+ infowincontent + '</a>');
+              infoWindow.setContent('<a href="detailsPage.php?id=' + id +'" style="text-decoration: none; color: black" class="font-weight-bold";>'+ infowincontent + '</a>' + 
+                      '<a href="detailsPage.php?id=' + id + '"><img class="card-img-top" src="' + image + '"></a>');
               infoWindow.open(map, marker);
             });
           });
