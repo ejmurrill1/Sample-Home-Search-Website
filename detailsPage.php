@@ -26,7 +26,7 @@ include 'database.php';
 						<ul class="horizontalMenu-list">
 						<li aria-haspopup="true"> <a href="california.php"> California</a></li>
 						<li aria-haspopup="true"> <a href="newYork.php"> New York</a></li>
-							<li aria-haspopup="true"><a href="conneticut.php">Conneticut</a></li>
+							<li aria-haspopup="true"> <a href="conneticut.php">Conneticut</a></li>
 											
 												</nav>
 <!--/Nav-->
@@ -61,7 +61,7 @@ if ( $connectsqli = $conn->prepare($sql)){
 
 <h5> <?php
  
-echo " Price: $row->price";?> </h5>
+echo "Price: $row->price";?> </h5>
 <br>
 <?php
 echo "Address: $row->address ";
@@ -71,7 +71,7 @@ echo "  $row->zipcode"; ?>
 
 <br>
 <?php
-echo  "Number of beds: $row->numbed  ";
+echo "Number of beds: $row->numbed  ";
 echo "Number of restrooms: $row->numbath - ";  ?>
 <br> <br>
 <h4> About <?php echo" $row->city ";?> </h4>
@@ -80,15 +80,15 @@ echo "Population: $row->population - ";
 
 echo "Median Age of Residents: $row->MedianAge - " ;
 echo "Median Household Income: $row->MedianHouseholdIncome - "; 
-echo" Residents with a Bachelor's Degree: $row->BachelorDegree -  ";
+echo "Residents with a Bachelor's Degree: $row->BachelorDegree -  ";
 
 echo "Property Crime Index: $row->PropertyCrimeIndex - ";
 
-echo " Total Housing Units: $row->TotalHousingUnits - ";
-echo " Owner Occupied Housing Units: $row->OwnerOccupiedHUs" ;
+echo "Total Housing Units: $row->TotalHousingUnits - ";
+echo "Owner Occupied Housing Units: $row->OwnerOccupiedHUs" ;
 
-echo "Population Growth Rate: $row-> PopulationGrowthRate - ";
-echo "  Air Quality Index: $row-> airquality - ";
+echo "Population Growth Rate: $row->PopulationGrowthRate - ";
+echo "Air Quality Index: $row->airquality - ";
 
           
 }
