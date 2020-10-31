@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html>
-    
-<?php include 'header.php'; ?>    
-    
 <head>
+  <link rel="stylesheet" href="style.css">
+
+  <div id="navbar">
+   <a href="index.php">Home</a>
+   <a href="loginPage.php">Login</a>
+   <a href="registrationPage.php">Registration</a>
+  </div>
 
 <?php
 use Phppot\Member;
@@ -36,6 +40,7 @@ if (! empty($_POST["login-btn"])) {
 				<?php if(!empty($loginResult)){?>
 				<div class="error-msg"><?php echo $loginResult;?></div>
 				<?php }?>
+				
 				<div class="row">
 						<div class="inline-block">
 							<div class="form-label">
