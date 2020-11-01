@@ -12,7 +12,7 @@
   <?php
 use Phppot\Member;
 if (! empty($_POST["signup-btn"])) {
-    require_once 'Member.php';
+    require_once 'member.php';
     $member = new Member();
 	$registrationResponse = $member->registerMember();
 }
