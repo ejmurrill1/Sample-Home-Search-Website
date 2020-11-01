@@ -9,7 +9,7 @@
     </head>
     <header>
       <div id="navbar">
-            <a><img src="img/logo.png" alt="Logo"></a>  
+            <a><img src="../../img/macrohomes.png" alt="image" width="180" height="140"></a> 
             <a href="index.php">Home</a>
             <a href="loginPage.php">Login</a>
             <a href="registrationPage.php">Registration</a>
