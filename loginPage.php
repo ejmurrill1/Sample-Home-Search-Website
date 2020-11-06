@@ -13,13 +13,14 @@
 use Phppot\Member;
 
 if (! empty($_POST["login-btn"])) {
-    require_once __DIR__ . 'member.php';
+    require_once __DIR__ . '/member.php';
     $member = new Member();
     $loginResult = $member->loginMember();
 }
 ?>
 <HTML>
 <HEAD>
+
 <TITLE>Macro Homes - Login</TITLE>
 <link href="assets/css/phppot-style.css" type="text/css"
 	rel="stylesheet" />
