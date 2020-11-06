@@ -12,6 +12,9 @@ class Member
         $this->ds = new DataSource();
     }
 
+     /**
+     * to check if the username already exists
+     *
      * @param string $username
      * @return boolean
      */
@@ -35,8 +38,10 @@ class Member
         return $result;
     }
 
-
-     * @param string 
+    /**
+     * to check if the email already exists
+     *
+     * @param string $email
      * @return boolean
      */
     public function isEmailExists($email)
@@ -58,10 +63,12 @@ class Member
         }
         return $result;
     }
-    
-     
-      @return string[] 
-     
+
+    /**
+     * to signup / register a user
+     *
+     * @return string[] registration status message
+     */
     public function registerMember()
     {
         $isUsernameExists = $this->isUsernameExists($_POST["username"]);
@@ -79,7 +86,6 @@ class Member
         } else {
             if (! empty($_POST["signup-password"])) {
 
-              
                 $hashedPassword = password_hash($_POST["signup-password"], PASSWORD_DEFAULT);
             }
             $query = 'INSERT INTO tbl_member (username, password, email) VALUES (?, ?, ?)';
@@ -111,9 +117,11 @@ class Member
         return $memberRecord;
     }
 
-   
-      @return string
-    
+    /**
+     * to login a user
+     *
+     * @return string
+     */
     public function loginMember()
     {
         $memberRecord = $this->getMember($_POST["username"]);
