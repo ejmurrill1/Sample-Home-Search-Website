@@ -9,8 +9,9 @@
    <a href="registrationPage.php">Registration</a>
   </div>
 
-  <?php
+<?php
 use Phppot\Member;
+
 if (! empty($_POST["signup-btn"])) {
     require_once 'member.php';
     $member = new Member();
@@ -34,7 +35,7 @@ if (! empty($_POST["signup-btn"])) {
 <div class="phppot-container">
 		<div class="sign-up-container">
 			<div class="login-signup">
-				<a href="index.php">Login</a>
+				<a href="LoginPage.php">Login</a>
 			</div>
 			<div class="">
 				<form name="sign-up" action="" method="post"
