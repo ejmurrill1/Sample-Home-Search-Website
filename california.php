@@ -41,7 +41,7 @@ include 'database.php';
     <?php
     require 'filterOptions.php';
 
-    $sql = "SELECT * FROM cis4290 WHERE  state='co' ";
+    $sql = "SELECT * FROM combinedhomes WHERE  state='co' ";
     $result = mysqli_query($conn, $sql);
     $queryResults = mysqli_num_rows($result);
 	
