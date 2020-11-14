@@ -13,89 +13,70 @@ include 'database.php';
           href="https://fonts.googleapis.com/css?family=Merriweather|Monserrat">
 	
 </head>
+
+  <?php include 'header.php'; ?>
+<TITLE>Macro Homes: Details Page</TITLE>
 <body>
-
-<div id="navbar"/>
-        <a href="index.php">Home</a>
-        <a href="loginPage.php">Login</a>
-        <a href="registrationPage.php">Registration</a>
-    </div>
 <!--Nav-->
-					<nav class="horizontalMenu clearfix d-md-flex">
+				<nav class="navbar sticky-top">
+				<div class="row py-1">
 						<ul class="horizontalMenu-list">
-						<li aria-haspopup="true"><a href="">California</a></li>
-						
-							<li aria-haspopup="true"><a href="">New York</a></li>
-							<li aria-haspopup="true"><a href="">Conneticut</a></li>
-							
-											
-												</nav>
-<div class="container-fluid">
-    <div class="row py-5">
-        <div class="col-lg-9 mx-auto text-center">
-            <h1 class="display-4">About the Home</h1>
-      </div>
-				</div>
-				
-				  </div>
-				  </div>
-<?php
+						<li aria-haspopup="true"> <a href="california.php"> California</a></li>
+						<li aria-haspopup="true"><a href="colorado.php">Colorado</a></li>
+						<li aria-haspopup="true"><a href="conneticut.php">Conneticut</a></li>
+						<li aria-haspopup="true"> <a href="newYork.php"> New York</a></li>
+						</div>
+				</nav>
+<!--Nav-->
+<!--About Home --> 
+       
+          <div class="container-fluid">
+            <div class="row py-5">
+                <div class="col-lg-9 mx-auto text-center">
+                    <h1 class="display-4">Details</h1>
+                </div>
+            </div>
+        </div>
 
+			
+        <?php
+        $id = $_GET['id'];
+        $sql = "SELECT * FROM cis4290 WHERE id = $id";
+        $result = $conn->query($sql);
 
+        if ($result != null) {
+            while ($row = $result->fetch_assoc()) {
+                ?>
+				  <div class="container-fluid">
+            <div class="row py-1">
+                <div class="col-lg-9 mx-auto">
+                    <img src="<?php echo $row['image-src'] ?>" alt='Not Found' onerror=this.src="https://d3bmimpiifbojs.cloudfront.net/wp-content/uploads/2017/04/no-image-image-1.png?x83809">
+                    <div class='container'>
+					<br>
+					<h2>Home Details</h2>
+					<br>
+                        <h3><?php echo "Address: " . $row['address'] ?></h3>
+                        <h3><?php echo $row['city'] . ", " . $row['state'] . " " . $row['zipcode'] ?></h3>
+                        <p><?php echo "Price: " . $row['price']; ?></p>
+                        <p><?php echo "Beds: " . $row['numbed'] . " Bath: " . $row['numbath'] . " Square Feet: " . $row['squarefootage'] ?></p> <br>
+						<h2> About <?php echo $row['city'];?> </h2> <br>
+                        <p><?php echo "Population: " . $row['population']; ?></p>
+						<p><?php echo "Population Growth Rate: " . $row['PopulationGrowthRate']; ?></p>
+                        <p><?php echo "Median Age: " . $row['MedianAge']; ?></p>
+                        <p><?php echo "Median Household Income: " . $row['MedianHouseholdIncome']; ?></p>
+						<p><?php echo "Residents with Bachelor's Degree: " . $row['BachelorDegree']; ?>/<?php echo $row['population'];?></p>
+                        <p><?php echo "Air Quality: " . $row['airquality']; ?></p>
+                        <p><?php echo "Unemployment Rate: " . $row['UnemploymentRate']; ?></p>
 
-$id=$_GET['id'];
+                    </div>
+					</div>
+					</div>
+					</div>
+                <?php
+            }
+        }
+        $conn->close();
+        ?>
 
-$sql="SELECT *  FROM cis4290 where id=?";
-if ( $connectsqli = $conn->prepare($sql)){
-	$connectsqli->bind_param('d',$id);
-	/*execute prepared statement*/
-	
-	$connectsqli->execute();
-	$result=$connectsqli->get_result();
-	$row=$result->fetch_object();
-	
-	?>
-	
-<h4>Home Basics</h4>
-
-<h5> <?php
- 
-echo " Price: $row->price";?> </h5>
-<br>
-<?php
-echo "Address: $row->address ";
-echo "$row->city";
-echo " $row->state,";
-echo "  $row->zipcode"; ?>
-
-<br>
-<?php
-echo  "Number of beds: $row->numbed  ";
-echo "Number of restrooms: $row->numbath - ";  ?>
-<br> <br>
-<h4> About <?php echo" $row->city ";?> </h4>
-<?php 
-echo "Population: $row->population - "; 
-
-echo "Median Age of Residents: $row->MedianAge - " ;
-echo "Median Household Income: $row->MedianHouseholdIncome - "; 
-echo" Residents with a Bachelor's Degree: $row->BachelorDegree -  ";
-
-echo "Property Crime Index: $row->PropertyCrimeIndex - ";
-
-echo " Total Housing Units: $row->TotalHousingUnits - ";
-echo " Owner Occupied Housing Units: $row->OwnerOccupiedHUs" ;
-
-echo "Population Growth Rate: $row-> PopulationGrowthRate - ";
-echo "  Air Quality Index: $row-> airquality - ";
-
-          
-}
-?>
-
-
-		</div>
-		</div>
-		
-		</body>
-		</html>
+    </body>
+</html>
