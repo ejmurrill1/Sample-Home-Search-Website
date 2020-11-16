@@ -174,7 +174,7 @@ session_start();
           var markers = xml.documentElement.getElementsByTagName('marker');
           Array.prototype.forEach.call(markers, function(markerElem) {
             var id = markerElem.getAttribute('id');
-            var image = markerElem.getAttribute('image-src');
+            var image = markerElem.getAttribute('image');
             var address = markerElem.getAttribute('address');
             var city = markerElem.getAttribute('city');
             var state = markerElem.getAttribute('state');
