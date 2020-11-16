@@ -6,7 +6,7 @@ include 'database.php';
     <?php include 'header.php'; ?>   
     <body>
         <div class="jumbotron text-center">
-            <h1>Marco Homes</h1>
+            <h1>Macro Homes</h1>
         </div>
 	
 	<h1 style="text-align: center">Featured Cities</h1>
@@ -102,7 +102,7 @@ include 'database.php';
       while($row = mysqli_fetch_assoc($result)) { ?>
         <div class='card mb-3' style='width: 18rem;'>
         <a href="detailsPage.php?id=<?php echo $row['id'] ?>" style="text-decoration: none; color: black;">
-                <img class='card-img-top' src="<?php echo $row['image-src'] ?>" alt='Not Found' onerror=this.src="https://d3bmimpiifbojs.cloudfront.net/wp-content/uploads/2017/04/no-image-image-1.png?x83809">
+                <img class='card-img-top' src="<?php echo $row['image'] ?>" alt='Not Found' onerror=this.src="img/noimg.jpg">
             <div class='container'>
               <h4><?php echo $row['address'] ?></h4>
                 <p><?php echo $row['city'] . ", " . $row['state'] . " " . $row['zipcode'] ?></p>
