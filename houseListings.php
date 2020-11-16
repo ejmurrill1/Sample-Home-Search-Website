@@ -23,11 +23,14 @@ session_start();
 <TITLE>Macro Homes - Search Results</TITLE>
 <body>
 
-<div id="navbar">
+<header>
+    <div id="navbar">
+        <a href="index.php"><img src="img/macrohomes.png" alt="image" width="50" height="30"></a> 
         <a href="index.php">Home</a>
         <a href="loginPage.php">Login</a>
         <a href="registrationPage.php">Registration</a>
     </div>
+</header>
 
 <div class="container-fluid">
     <div class="row py-5">
@@ -120,7 +123,7 @@ session_start();
         <div class="col-md-3 col-sm-6">
             <div class="card card-block">
                 <a href="detailsPage.php?id=<?php echo $row['id'] ?>" style="text-decoration: none; color: black;">
-                <img class='card-img-top' src="<?php echo $row['image-src'] ?>" alt='Not Found' onerror=this.src="https://d3bmimpiifbojs.cloudfront.net/wp-content/uploads/2017/04/no-image-image-1.png?x83809">
+                    <img class='card-img-top' src="<?php echo $row['image'] ?>" alt='Not Found' onerror=this.src="img/noimg.jpg">
                     <div class="card-body">
                         <h3 class="card-title"><?php echo $row['address'] ?></h3>
                         <p><?php echo $row['city'] . ", " . $row['state'] . " " . $row['zipcode'] ?></p>
