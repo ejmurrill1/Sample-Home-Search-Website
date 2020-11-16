@@ -1,14 +1,14 @@
-<form action="houseListings.php" method="POST">
+<form action="houseListings.php" method="GET">
         <div class="row">
             <div class="input-group mb-4">
                 <input type="text" name="search" placeholder="Search" aria-label="Search" class="form-control form-control-md"
                        <?php
-                           if (filter_input(INPUT_POST, 'search') !== null){
-                               echo 'value=\'' . filter_input(INPUT_POST, 'search') . '\'';
+                           if (filter_input(INPUT_GET, 'search') !== null){
+                               echo 'value=\'' . filter_input(INPUT_GET, 'search') . '\'';
                            }
                            ?>>
                 <div class="input-group-append">
-                    <button id="button-addon5" type="submit" name="submit-search" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                    <button id="button-addon5" type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
                 </div>
             </div>
         </div>
@@ -41,8 +41,8 @@
                 <label for="minPrice">Minimum Price</label>
                 <input type="text" placeholder="Min Price" name="minPrice" class="form-control"
                        <?php
-                       if (filter_input(INPUT_POST, 'minPrice') !== null){
-                           echo 'value=\'' . filter_input(INPUT_POST, 'minPrice') . '\'';
+                       if (filter_input(INPUT_GET, 'minPrice') !== null){
+                           echo 'value=\'' . filter_input(INPUT_GET, 'minPrice') . '\'';
                        }
                        ?>>
             </div>
@@ -50,8 +50,8 @@
             <label for="maxPrice">Maximum Price</label>
             <input type="text" placeholder="Max Price" name ="maxPrice" class="form-control"
                    <?php
-                   if (filter_input(INPUT_POST, 'maxPrice') !== null){
-                       echo 'value=\'' . filter_input(INPUT_POST, 'maxPrice') . '\'';
+                   if (filter_input(INPUT_GET, 'maxPrice') !== null){
+                       echo 'value=\'' . filter_input(INPUT_GET, 'maxPrice') . '\'';
                    }
                    ?>>
             </div>
@@ -59,8 +59,8 @@
              <label for="minSqFt">Minimum Square Footage</label>
              <input type="text" placeholder="Min Square Footage" name="minSqFt" class="form-control"
                     <?php
-                    if (filter_input(INPUT_POST, 'minSqFt') !== null){
-                        echo 'value=\'' . filter_input(INPUT_POST, 'minSqFt') . '\'';
+                    if (filter_input(INPUT_GET, 'minSqFt') !== null){
+                        echo 'value=\'' . filter_input(INPUT_GET, 'minSqFt') . '\'';
                     }
                     ?>>
             </div>
@@ -68,8 +68,8 @@
              <label for="maxSqFt">Maximum Square Footage</label>
              <input type="text" placeholder="Max Square Footage" name ="maxSqFt" class="form-control"
                     <?php
-                    if (filter_input(INPUT_POST, 'maxSqFt') !== null){
-                        echo 'value=\'' . filter_input(INPUT_POST, 'maxSqFt') . '\'';
+                    if (filter_input(INPUT_GET, 'maxSqFt') !== null){
+                        echo 'value=\'' . filter_input(INPUT_GET, 'maxSqFt') . '\'';
                     }
                     ?>>
             </div>
@@ -79,8 +79,8 @@
                     <label for="minPopulation">Minimum City Population</label>
                     <input type="text" placeholder="Min Population" name="minPopulation" class="form-control"
                            <?php
-                           if (filter_input(INPUT_POST, 'minPopulation') !== null){
-                               echo 'value=\'' . filter_input(INPUT_POST, 'minPopulation') . '\'';
+                           if (filter_input(INPUT_GET, 'minPopulation') !== null){
+                               echo 'value=\'' . filter_input(INPUT_GET, 'minPopulation') . '\'';
                            }
                            ?>>
                 </div>
@@ -88,8 +88,8 @@
                     <label for="maxPopulation">Maximum City Population</label>
                     <input type="text" placeholder="Max Population" name ="maxPopulation" class="form-control"
                            <?php
-                           if (filter_input(INPUT_POST, 'maxPopulation') !== null){
-                               echo 'value=\'' . filter_input(INPUT_POST, 'maxPopulation') . '\'';
+                           if (filter_input(INPUT_GET, 'maxPopulation') !== null){
+                               echo 'value=\'' . filter_input(INPUT_GET, 'maxPopulation') . '\'';
                            }
                            ?>>
                 </div>
@@ -97,8 +97,8 @@
                     <label for="minMedianAge">Minimum Median Age</label>
                     <input type="text" placeholder="Min Median Age" name="minMedianAge" class="form-control"
                            <?php
-                           if (filter_input(INPUT_POST, 'minMedianAge') !== null){
-                               echo 'value=\'' . filter_input(INPUT_POST, 'minMedianAge') . '\'';
+                           if (filter_input(INPUT_GET, 'minMedianAge') !== null){
+                               echo 'value=\'' . filter_input(INPUT_GET, 'minMedianAge') . '\'';
                            }
                            ?>>
                 </div>
@@ -106,8 +106,8 @@
                     <label for="maxMedianAge">Maximum Median Age</label>
                     <input type="text" placeholder="Max Median Age" name ="maxMedianAge" class="form-control"
                            <?php
-                           if (filter_input(INPUT_POST, 'maxMedianAge') !== null){
-                               echo 'value=\'' . filter_input(INPUT_POST, 'maxMedianAge') . '\'';
+                           if (filter_input(INPUT_GET, 'maxMedianAge') !== null){
+                               echo 'value=\'' . filter_input(INPUT_GET, 'maxMedianAge') . '\'';
                            }
                            ?>>
                 </div>
@@ -115,8 +115,8 @@
                 <label for="minMedianHouseholdIncome">2020 Minimum Median Household Income</label>
                 <input type="text" placeholder="Min Median Household Income" name="minMedianHouseholdIncome" class="form-control"
                        <?php
-                       if (filter_input(INPUT_POST, 'minMedianHouseholdIncome') !== null){
-                           echo 'value=\'' . filter_input(INPUT_POST, 'minMedianHouseholdIncome') . '\'';
+                       if (filter_input(INPUT_GET, 'minMedianHouseholdIncome') !== null){
+                           echo 'value=\'' . filter_input(INPUT_GET, 'minMedianHouseholdIncome') . '\'';
                        }
                        ?>>
                 </div>
@@ -124,8 +124,8 @@
                 <label for="maxMedianHouseholdIncome">2020 Maximum Median Household Income</label>
                 <input type="text" placeholder="Max Median Household Income" name ="maxMedianHouseholdIncome" class="form-control"
                        <?php
-                       if (filter_input(INPUT_POST, 'maxMedianHouseholdIncome') !== null){
-                           echo 'value=\'' . filter_input(INPUT_POST, 'maxMedianHouseholdIncome') . '\'';
+                       if (filter_input(INPUT_GET, 'maxMedianHouseholdIncome') !== null){
+                           echo 'value=\'' . filter_input(INPUT_GET, 'maxMedianHouseholdIncome') . '\'';
                        }
                        ?>>
                 </div>
@@ -135,8 +135,8 @@
                 <label for="minUnemploymentRate">2020 Minimum Unemployment Rate</label>
                 <input type="text" placeholder="Min Unemployment Rate" name="minUnemploymentRate" class="form-control"
                        <?php
-                       if (filter_input(INPUT_POST, 'minUnemploymentRate') !== null){
-                           echo 'value=\'' . filter_input(INPUT_POST, 'minUnemploymentRate') . '\'';
+                       if (filter_input(INPUT_GET, 'minUnemploymentRate') !== null){
+                           echo 'value=\'' . filter_input(INPUT_GET, 'minUnemploymentRate') . '\'';
                        }
                        ?>>
             </div>
@@ -144,8 +144,8 @@
                 <label for="maxUnemploymentRate">2020 Maximum Unemployment Rate</label>
                 <input type="text" placeholder="Max Unemployment Rate" name ="maxUnemploymentRate" class="form-control"
                        <?php
-                       if (filter_input(INPUT_POST, 'maxUnemploymentRate') !== null){
-                           echo 'value=\'' . filter_input(INPUT_POST, 'maxUnemploymentRate') . '\'';
+                       if (filter_input(INPUT_GET, 'maxUnemploymentRate') !== null){
+                           echo 'value=\'' . filter_input(INPUT_GET, 'maxUnemploymentRate') . '\'';
                        }
                        ?>>
             </div>
@@ -153,8 +153,8 @@
                 <label>2020 Minimum Property Crime Index</label>
                 <input type="text" placeholder="Min Crime Index" name="minCrimeIndex" class="form-control"
                        <?php
-                       if (filter_input(INPUT_POST, 'minCrimeIndex') !== null){
-                           echo 'value=\'' . filter_input(INPUT_POST, 'minCrimeIndex') . '\'';
+                       if (filter_input(INPUT_GET, 'minCrimeIndex') !== null){
+                           echo 'value=\'' . filter_input(INPUT_GET, 'minCrimeIndex') . '\'';
                        }
                        ?>>
             </div>
@@ -162,8 +162,8 @@
                 <label>2020 Maximum Property Crime Index</label>
                 <input type="text" placeholder="Max Crime Index" name ="maxCrimeIndex" class="form-control"
                        <?php
-                       if (filter_input(INPUT_POST, 'maxCrimeIndex') !== null){
-                           echo 'value=\'' . filter_input(INPUT_POST, 'maxCrimeIndex') . '\'';
+                       if (filter_input(INPUT_GET, 'maxCrimeIndex') !== null){
+                           echo 'value=\'' . filter_input(INPUT_GET, 'maxCrimeIndex') . '\'';
                        }
                        ?>>
             </div>
@@ -171,15 +171,15 @@
                 <label for="minPopulationGrowth">2020-2025 Growth Rate: Population</label>
                 <input type="text" placeholder="Min Growth Rate" name="minPopulationGrowth" class="form-control"
                        <?php
-                       if (filter_input(INPUT_POST, 'minPopulationGrowth') !== null){
-                           echo 'value=\'' . filter_input(INPUT_POST, 'minPopulationGrowth') . '\'';
+                       if (filter_input(INPUT_GET, 'minPopulationGrowth') !== null){
+                           echo 'value=\'' . filter_input(INPUT_GET, 'minPopulationGrowth') . '\'';
                        }
                        ?>>
 
                 <input type="text" placeholder="Max Growth Rate" name ="maxPopulationGrowth" class="form-control"
                        <?php
-                       if (filter_input(INPUT_POST, 'maxPopulationGrowth') !== null){
-                           echo 'value=\'' . filter_input(INPUT_POST, 'maxPopulationGrowth') . '\'';
+                       if (filter_input(INPUT_GET, 'maxPopulationGrowth') !== null){
+                           echo 'value=\'' . filter_input(INPUT_GET, 'maxPopulationGrowth') . '\'';
                        }
                        ?>>
             </div>
@@ -189,8 +189,8 @@
                 <label for="minBachelorsDegree">2020 Population Age 25+: Bachelor's Degree</label>
                 <input type="text" placeholder="Min Bachelors Degree" name="minBachelorsDegree" class="form-control"
                        <?php
-                       if (filter_input(INPUT_POST, 'minBachelorsDegree') !== null){
-                           echo 'value=\'' . filter_input(INPUT_POST, 'minBachelorsDegree') . '\'';
+                       if (filter_input(INPUT_GET, 'minBachelorsDegree') !== null){
+                           echo 'value=\'' . filter_input(INPUT_GET, 'minBachelorsDegree') . '\'';
                        }
                        ?>>
             </div>
@@ -198,8 +198,8 @@
                 <label for="minTotalHousingUnit">2020 Minimum Total Housing Units</label>
                 <input type="text" placeholder="Min Total Housing Unit" name="minTotalHousingUnit" class="form-control"
                        <?php
-                       if (filter_input(INPUT_POST, 'minTotalHousingUnit') !== null){
-                           echo 'value=\'' . filter_input(INPUT_POST, 'minTotalHousingUnit') . '\'';
+                       if (filter_input(INPUT_GET, 'minTotalHousingUnit') !== null){
+                           echo 'value=\'' . filter_input(INPUT_GET, 'minTotalHousingUnit') . '\'';
                        }
                        ?>>
             </div>
@@ -207,8 +207,8 @@
                 <label for="maxTotalHousingUnit">2020 Maximum Total Housing Units</label>
                 <input type="text" placeholder="Max Total Housing Unit" name ="maxTotalHousingUnit" class="form-control"
                        <?php
-                       if (filter_input(INPUT_POST, 'maxTotalHousingUnit') !== null){
-                           echo 'value=\'' . filter_input(INPUT_POST, 'maxTotalHousingUnit') . '\'';
+                       if (filter_input(INPUT_GET, 'maxTotalHousingUnit') !== null){
+                           echo 'value=\'' . filter_input(INPUT_GET, 'maxTotalHousingUnit') . '\'';
                        }
                        ?>>
             </div>
@@ -216,14 +216,14 @@
                 <label>2020 Owner Occupied Housing Units</label>
                 <input type="text" placeholder="Min Owner Occupied HUs" name="minOwnerOccupiedHUs" class="form-control"
                        <?php
-                       if (filter_input(INPUT_POST, 'maxOwnerOccupiedHUs') !== null){
-                           echo 'value=\'' . filter_input(INPUT_POST, 'maxOwnerOccupiedHUs') . '\'';
+                       if (filter_input(INPUT_GET, 'maxOwnerOccupiedHUs') !== null){
+                           echo 'value=\'' . filter_input(INPUT_GET, 'maxOwnerOccupiedHUs') . '\'';
                        }
                        ?>>
                 <input type="text" placeholder="Max Owner Occupied HUs" name ="maxOwnerOccupiedHUs" class="form-control"
                        <?php
-                       if (filter_input(INPUT_POST, 'maxOwnerOccupiedHUs') !== null){
-                           echo 'value=\'' . filter_input(INPUT_POST, 'maxOwnerOccupiedHUs') . '\'';
+                       if (filter_input(INPUT_GET, 'maxOwnerOccupiedHUs') !== null){
+                           echo 'value=\'' . filter_input(INPUT_GET, 'maxOwnerOccupiedHUs') . '\'';
                        }
                        ?>>
             </div>
@@ -231,8 +231,8 @@
                 <label for="airQuality">Minimum Air Quality</label>
                 <input type="text" placeholder="Enter index 1-100" name="airQuality" class="form-control"
                        <?php
-                       if (filter_input(INPUT_POST, 'search') !== null){
-                           echo 'value=\'' . filter_input(INPUT_POST, 'airQuality') . '\'';
+                       if (filter_input(INPUT_GET, 'search') !== null){
+                           echo 'value=\'' . filter_input(INPUT_GET, 'airQuality') . '\'';
                        }
                        ?>>
             </div>

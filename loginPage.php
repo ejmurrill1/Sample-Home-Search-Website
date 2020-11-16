@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html>
-    
-<?php include 'header.php'; ?>    
-    
 <head>
+  <link rel="stylesheet" href="style.css">
+
+  <div id="navbar">
+   <a href="index.php">Home</a>
+   <a href="loginPage.php">Login</a>
+   <a href="registrationPage.php">Registration</a>
+  </div>
 
 <?php
 use Phppot\Member;
 
 if (! empty($_POST["login-btn"])) {
-    require_once __DIR__ . '/Model/Member.php';
+    require_once __DIR__ . '/member.php';
     $member = new Member();
     $loginResult = $member->loginMember();
 }
 ?>
 <HTML>
 <HEAD>
+
 <TITLE>Macro Homes - Login</TITLE>
 <link href="assets/css/phppot-style.css" type="text/css"
 	rel="stylesheet" />
@@ -36,6 +41,7 @@ if (! empty($_POST["login-btn"])) {
 				<?php if(!empty($loginResult)){?>
 				<div class="error-msg"><?php echo $loginResult;?></div>
 				<?php }?>
+				
 				<div class="row">
 						<div class="inline-block">
 							<div class="form-label">

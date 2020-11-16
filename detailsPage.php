@@ -4,6 +4,7 @@ include 'database.php';
 
 <!DOCTYPE html>
 <html>
+
     <head>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -17,10 +18,12 @@ include 'database.php';
 
 
         <div id="navbar"/>
+
         <a href="index.php">Home</a>
         <a href="loginPage.php">Login</a>
         <a href="registrationPage.php">Registration</a>
     </div>
+
     <!--Nav-->
     <nav class="horizontalMenu clearfix d-md-flex">
         <ul class="horizontalMenu-list">
@@ -118,6 +121,6 @@ if ($connectsqli = $conn->prepare($sql)) {
 
 </div>
 </div>
-
-</body>
-</html>
+		
+		</body>
+		</html>
