@@ -45,7 +45,7 @@ include 'database.php';
     <?php
     require 'filterOptions.php';
 
-    $sql = "SELECT * FROM cis4290 WHERE  city='claremont' ";
+    $sql = "SELECT * FROM combinedhomes WHERE  city='claremont' ";
     $result = mysqli_query($conn, $sql);
     $queryResults = mysqli_num_rows($result);
 	
@@ -55,7 +55,7 @@ include 'database.php';
             <div class="col-md-3 col-sm-6">
             <div class="card card-block">
                 <a href="detailsPage.php?id=<?php echo $row['id'] ?>" style="text-decoration: none; color: black;">
-                <img class='card-img-top' src="<?php echo $row['image-src'] ?>" alt='Not Found' onerror=this.src="https://d3bmimpiifbojs.cloudfront.net/wp-content/uploads/2017/04/no-image-image-1.png?x83809">
+                <img class='card-img-top' src="<?php echo $row['image'] ?>" alt='Not Found' onerror=this.src="https://d3bmimpiifbojs.cloudfront.net/wp-content/uploads/2017/04/no-image-image-1.png?x83809">
                     <div class="card-body">
                         <h3 class="card-title"><?php echo $row['address'] ?></h3>
                         <p><?php echo $row['city'] . ", " . $row['state'] . " " . $row['zipcode'] ?></p>
