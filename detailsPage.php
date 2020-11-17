@@ -62,7 +62,7 @@ if ($connectsqli = $conn->prepare($sql)) {
                     <img src="<?php echo $row->image; ?>" alt='Not Found' onerror=this.src="img/noimg.jpg"> 
                 </div>
                 <div class="col">
-                <h4>Home Basics</h4>
+                <h4>Home Details</h4>
                     <h5> <?php echo "Price: $ $row->price"; ?> </h5>
                     <br>
                     <?php
