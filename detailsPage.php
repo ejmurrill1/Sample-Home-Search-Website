@@ -63,7 +63,7 @@ if ($connectsqli = $conn->prepare($sql)) {
                 </div>
                 <div class="col">
                 <h4>Home Basics</h4>
-                    <h5> <?php echo "Price: $row->price"; ?> </h5>
+                    <h5> <?php echo "Price: $ $row->price"; ?> </h5>
                     <br>
                     <?php
                     echo "Address: $row->address";
@@ -103,7 +103,7 @@ if ($connectsqli = $conn->prepare($sql)) {
                     <?php echo "Owner Occupied Housing Units: $row->OwnerOccupiedHUs"; ?>
                     <br>
                     <img src="https://www.flaticon.com/svg/static/icons/svg/951/951216.svg" width="3%" height="3%">
-                    <?php echo "Population Growth Rate: $row->PopulationGrowthRate"; ?> %
+                    <?php echo "Population Growth Rate: $row->PopulationGrowthRate"; ?> 
                     <br>
                     <img src="https://www.flaticon.com/svg/static/icons/svg/3260/3260792.svg" width="3%" height="3%">
     <?php
