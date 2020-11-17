@@ -13,7 +13,7 @@ include 'database.php';
           href="https://fonts.googleapis.com/css?family=Merriweather|Monserrat">
 
 </head>
-<TITLE>Macro Homes</TITLE>
+<TITLE>Macro Homes: Homes in New York</TITLE>
 <body>
 
 <div id="navbar"/>
