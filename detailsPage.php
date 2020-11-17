@@ -22,15 +22,17 @@ include 'database.php';
         <a href="registrationPage.php">Registration</a>
     </div>
 
-    <!--Nav-->
-    <nav class="horizontalMenu clearfix d-md-flex">
-        <ul class="horizontalMenu-list">
-            <li aria-haspopup="true"> <a href="california.php"> California</a></li>
-            <li aria-haspopup="true"> <a href="newYork.php"> New York</a></li>
-            <li aria-haspopup="true"> <a href="conneticut.php">Connecticut</a></li>
-
-    </nav>
-    <!--/Nav-->
+   <!--Nav-->
+				<nav class="navbar sticky-top">
+				<div class="row py-1">
+						<ul class="horizontalMenu-list">
+						<li aria-haspopup="true"> <a href="california.php"> California</a></li>
+						<li aria-haspopup="true"><a href="colorado.php">Colorado</a></li>
+						<li aria-haspopup="true"><a href="conneticut.php">Conneticut</a></li>
+						<li aria-haspopup="true"> <a href="newYork.php"> New York</a></li>
+						</div>
+				</nav>
+<!--Nav-->
 
     <div class="container-fluid">
         <div class="row py-5">
