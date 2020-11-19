@@ -16,14 +16,28 @@ include 'database.php';
 <TITLE>Macro Homes: Homes in Colorado</TITLE>
 <body>
   <?php include 'header.php'; ?>
- <!--Nav-->
-					<nav class="navbar sticky-top">
-						<ul class="horizontalMenu-list">
-						<li aria-haspopup="true"> <a href="california.php"> California</a></li>
-						<li aria-haspopup="true"><a href="colorado.php">Colorado</a></li>
-						<li aria-haspopup="true"><a href="conneticut.php">Conneticut</a></li>
-						<li aria-haspopup="true"> <a href="newYork.php"> New York</a></li>
-				</nav>
+	
+<!--Nav-->
+  <nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color:	#D3D3D3;">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+   <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+   <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+     <li class="nav-item">
+       <a class="nav-link" href="california.php">California</a>
+     </li>
+     <li class="nav-item">
+       <a class="nav-link" href="conneticut.php">Conneticut</a>
+     </li>
+     <li class="nav-item">
+       <a class="nav-link" href="newYork.php">New York</a>
+     </li>
+   </ul>
+  </div>
+  </nav>
+  <!--Nav-->
+	
 <div class="container-fluid">
     <div class="row py-5">
         <div class="col-lg-9 mx-auto text-center">
