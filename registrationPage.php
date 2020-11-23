@@ -34,13 +34,12 @@ if (! empty($_POST["signup-btn"])) {
 
 <div class="phppot-container">
 		<div class="sign-up-container">
-			<div class="login-signup">
-				<a href="LoginPage.php">Login</a>
-			</div>
 			<div class="">
 				<form name="sign-up" action="" method="post"
 					onsubmit="return signupValidation()">
+        </br>
 					<div class="signup-heading">Registration</div>
+        </br>
 				<?php
     if (! empty($registrationResponse["status"])) {
         ?>
@@ -95,6 +94,7 @@ if (! empty($_POST["signup-btn"])) {
 								name="confirm-password" id="confirm-password">
 						</div>
 					</div>
+        </br>
 					<div class="row">
 						<input class="btn" type="submit" name="signup-btn"
 							id="signup-btn" value="Sign up">
@@ -102,6 +102,10 @@ if (! empty($_POST["signup-btn"])) {
 				</form>
 			</div>
 		</div>
+  </br>
+    <div class="login-signup">
+      <P>Already Have an Account?</br> <a href="LoginPage.php">Login Here!</a></P>
+    </div>
 	</div>
 
 	<script>
