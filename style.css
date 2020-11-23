@@ -150,3 +150,15 @@ div [class^="col-"]{
     height: 10vw;
     object-fit: cover;
 }
+
+.phppot-container{
+  text-align: center;
+}
+
+.signup-heading{
+  font-size: 45px;
+}
+
+.form-label{
+  font-size: 17px;
+}
