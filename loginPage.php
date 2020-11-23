@@ -31,17 +31,14 @@ if (! empty($_POST["login-btn"])) {
 <BODY>
 	<div class="phppot-container">
 		<div class="sign-up-container">
-			<div class="login-signup">
-				<a href="registrationPage.php">Sign up</a>
-			</div>
 			<div class="signup-align">
 				<form name="login" action="" method="post"
 					onsubmit="return loginValidation()">
-					<div class="signup-heading">Login</div>
+					<div class="signup-heading">Login</div> </br>
 				<?php if(!empty($loginResult)){?>
 				<div class="error-msg"><?php echo $loginResult;?></div>
 				<?php }?>
-				
+
 				<div class="row">
 						<div class="inline-block">
 							<div class="form-label">
@@ -65,6 +62,9 @@ if (! empty($_POST["login-btn"])) {
 							id="login-btn" value="Login">
 					</div>
 				</form>
+			</div>
+      <div class="login-signup">
+				<p>Don't Have an Account?</br><a href="registrationPage.php">Sign Up Here</a></p>
 			</div>
 		</div>
 	</div>
