@@ -28,13 +28,17 @@ if (! empty($_POST["login-btn"])) {
 	rel="stylesheet" />
 <script src="vendor/jquery/jquery-3.3.1.js" type="text/javascript"></script>
 </HEAD>
+
 <BODY>
+
 	<div class="phppot-container">
 		<div class="sign-up-container">
 			<div class="signup-align">
 				<form name="login" action="" method="post"
 					onsubmit="return loginValidation()">
-					<div class="signup-heading">Login</div> </br>
+			</br>
+					<div class="signup-heading">Login</div> 
+			</br>
 				<?php if(!empty($loginResult)){?>
 				<div class="error-msg"><?php echo $loginResult;?></div>
 				<?php }?>
