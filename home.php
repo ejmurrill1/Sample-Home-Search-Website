@@ -26,17 +26,19 @@ if (isset($_SESSION["username"])) {
 <HTML>
 <HEAD>
 <TITLE>Welcome</TITLE>
-<link href="assets/css/phppot-style.css" type="text/css"
+<link href="phppot-style.css" type="text/css"
 	rel="stylesheet" />
-<link href="assets/css/user-registration.css" type="text/css"
+<link href="user-registration.css" type="text/css"
 	rel="stylesheet" />
 </HEAD>
 <BODY>
 	<div class="phppot-container">
+  <div class="sign-up-container">
+			<div class="signup-align">
 		<div class="page-header">
 			<span class="login-signup"><a href="logout.php">Logout</a></span>
 		</div>
-		<div class="page-content">Welcome <?php echo $username;?></div>
+		<div class="page-content">Welcome to Macro-Homes <?php echo $username;?></div>
 	</div>
 
     <?php
