@@ -13,41 +13,21 @@ include 'database.php';
           href="https://fonts.googleapis.com/css?family=Merriweather|Monserrat">
 
 </head>
-<TITLE>Macro Homes: Homes in New York</TITLE>
+<TITLE>Macro Homes: Homes in claremont</TITLE>
 <body>
-
-<div id="navbar"/>
-        <a href="index.php">Home</a>
-        <a href="loginPage.php">Login</a>
-        <a href="registrationPage.php">Registration</a>
-    </div>
-	
-<!--Nav-->
-
-    <nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color:	#D3D3D3;">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="california.php">California</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="colorado.php">Colorado</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="conneticut.php">Conneticut</a>
-        </li>
-      </ul>
-    </div>
-    </nav>
-<!--Nav-->
-	
+  <?php include 'header.php'; ?>
+ <!--Nav-->
+					<nav class="navbar sticky-top">
+						<ul class="horizontalMenu-list">
+						<li aria-haspopup="true"> <a href="california.php"> California</a></li>
+						<li aria-haspopup="true"><a href="claremont.php">claremont</a></li>
+						<li aria-haspopup="true"><a href="conneticut.php">Conneticut</a></li>
+						<li aria-haspopup="true"> <a href="newYork.php"> New York</a></li>
+				</nav>
 <div class="container-fluid">
     <div class="row py-5">
         <div class="col-lg-9 mx-auto text-center">
-            <h1 class="display-4">Homes in New York</h1>
+            <h1 class="display-4">Homes in claremont</h1>
       </div>
 				</div>
 				
@@ -65,7 +45,7 @@ include 'database.php';
     <?php
     require 'filterOptions.php';
 
-    $sql = "SELECT * FROM cis4290 WHERE  state='ny' ";
+    $sql = "SELECT * FROM cis4290 WHERE  city='claremont' ";
     $result = mysqli_query($conn, $sql);
     $queryResults = mysqli_num_rows($result);
 	

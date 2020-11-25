@@ -1,82 +1,147 @@
 <?php
 include 'database.php';
-
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
-	    <link rel="stylesheet"
+    <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Merriweather|Monserrat">
-	
-</head>
 
-  <?php include 'header.php'; ?>
-<TITLE>Macro Homes: Details Page</TITLE>
+</head>
 <body>
+    <TITLE>Macro Homes: Details Page</TITLE>
+
+
+    <div id="navbar"/>
+        <a href="index.php">Home</a>
+        <a href="loginPage.php">Login</a>
+        <a href="registrationPage.php">Registration</a>
+    </div>
+
+   <!--Nav-->
+  <nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color:	#D3D3D3;">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" href="california.php">California</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="colorado.php">Colorado</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="conneticut.php">Conneticut</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="newYork.php">New York</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 <!--Nav-->
-				<nav class="navbar sticky-top">
-				<div class="row py-1">
-						<ul class="horizontalMenu-list">
-						<li aria-haspopup="true"> <a href="california.php"> California</a></li>
-						<li aria-haspopup="true"><a href="colorado.php">Colorado</a></li>
-						<li aria-haspopup="true"><a href="conneticut.php">Conneticut</a></li>
-						<li aria-haspopup="true"> <a href="newYork.php"> New York</a></li>
-						</div>
-				</nav>
-<!--Nav-->
-<!--About Home --> 
-       
-          <div class="container-fluid">
-            <div class="row py-5">
-                <div class="col-lg-9 mx-auto text-center">
-                    <h1 class="display-4">Details</h1>
-                </div>
+
+    <div class="container-fluid">
+        <div class="row py-5">
+            <div class="col-lg-9 mx-auto text-center">
+                <h1 class="display-4">About the Home</h1>
             </div>
         </div>
+    </div>
+</div>
+<?php
+$id = $_GET['id'];
 
-			
-        <?php
-        $id = $_GET['id'];
-        $sql = "SELECT * FROM cis4290 WHERE id = $id";
-        $result = $conn->query($sql);
+$sql = "SELECT *  FROM cis4290 where id=?";
+if ($connectsqli = $conn->prepare($sql)) {
+    $connectsqli->bind_param('d', $id);
+    /* execute prepared statement */
 
-        if ($result != null) {
-            while ($row = $result->fetch_assoc()) {
-                ?>
-				  <div class="container-fluid">
-            <div class="row py-1">
-                <div class="col-lg-9 mx-auto">
-                    <img src="<?php echo $row['image-src'] ?>" alt='Not Found' onerror=this.src="https://d3bmimpiifbojs.cloudfront.net/wp-content/uploads/2017/04/no-image-image-1.png?x83809">
-                    <div class='container'>
-					<br>
-					<h2>Home Details</h2>
-					<br>
-                        <h3><?php echo "Address: " . $row['address'] ?></h3>
-                        <h3><?php echo $row['city'] . ", " . $row['state'] . " " . $row['zipcode'] ?></h3>
-                        <p><?php echo "Price: " . $row['price']; ?></p>
-                        <p><?php echo "Beds: " . $row['numbed'] . " Bath: " . $row['numbath'] . " Square Feet: " . $row['squarefootage'] ?></p> <br>
-						<h2> About <?php echo $row['city'];?> </h2> <br>
-                        <p><?php echo "Population: " . $row['population']; ?></p>
-						<p><?php echo "Population Growth Rate: " . $row['PopulationGrowthRate']; ?></p>
-                        <p><?php echo "Median Age: " . $row['MedianAge']; ?></p>
-                        <p><?php echo "Median Household Income: " . $row['MedianHouseholdIncome']; ?></p>
-						<p><?php echo "Residents with Bachelor's Degree: " . $row['BachelorDegree']; ?>/<?php echo $row['population'];?></p>
-                        <p><?php echo "Air Quality: " . $row['airquality']; ?></p>
-                        <p><?php echo "Unemployment Rate: " . $row['UnemploymentRate']; ?></p>
+    $connectsqli->execute();
+    $result = $connectsqli->get_result();
+    $row = $result->fetch_object();
+    ?>  <div class="container-fluid">
+	
+  
+       
+            <div class="col-lg-9 mx-auto bg-white p-5 rounded shadow img-responsive">
+           <div class="row">
+               
+                    <img src="<?php echo $row->image; ?>" class "img-resize" alt='Not Found' onerror=this.src="img/noimg.jpg"> 
+					
+               
+                <div class="col">
+                <h4>Home Details</h4>
+                    <h5> <?php echo "Price: $row->price"; ?> </h5>
+                    <br>
+                    <?php
+                    echo "Address: $row->address";
+                    echo " $row->city";
+                    echo " $row->state,";
+                    echo "  $row->zipcode";
+                    ?>
+                    <br>
+                    <img src="https://www.flaticon.com/svg/static/icons/svg/3030/3030336.svg" width="3%" height="3%">
+                    <?php echo "Number of beds: $row->numbed"; ?>
+                    <br>
+                    <img src="https://www.flaticon.com/svg/static/icons/svg/900/900688.svg" width="3%" height="3%">
+                    <?php echo "Number of restrooms: $row->numbath"; ?>
+                    <br>
 
-                    </div>
-					</div>
-					</div>
-					</div>
-                <?php
-            }
-        }
-        $conn->close();
-        ?>
-
-    </body>
+                    <br><br>
+                    <h4> About <?php echo" $row->city"; ?> </h4>
+                    <img src="https://www.flaticon.com/svg/static/icons/svg/615/615075.svg" width="3%" height="3%">
+                    <?php echo "Population: $row->population"; ?>
+                    <br>
+                    <img src="https://www.flaticon.com/svg/static/icons/svg/31/31370.svg" width="3%" height="3%">
+                    <?php echo "Median Age of Residents: $row->MedianAge"; ?>
+                    <br>
+                    <img src="https://www.flaticon.com/svg/static/icons/svg/631/631200.svg" width="3%" height="3%">
+                    <?php echo "Median Household Income: $row->MedianHouseholdIncome"; ?>
+                    <br>
+                    <img src="https://www.flaticon.com/svg/static/icons/svg/2231/2231605.svg" width="3%" height="3%">
+                    <?php echo "Residents with a Bachelor's Degree: $row->BachelorDegree"; ?>
+                    <br>
+                    <img src="https://www.flaticon.com/svg/static/icons/svg/3208/3208803.svg" width="3%" height="3%">
+                    <?php echo "Property Crime Index: Safer than $row->PropertyCrimeIndex % of U.S. neighborhoods"; ?>
+                    <br>
+                    <img src="https://www.flaticon.com/svg/static/icons/svg/1946/1946488.svg" width="3%" height="3%">
+                    <?php echo "Total Housing Units: $row->TotalHousingUnits"; ?>
+                    <br>
+                    <img src="https://www.flaticon.com/svg/static/icons/svg/2329/2329942.svg" width="3%" height="3%">
+                    <?php echo "Owner Occupied Housing Units: $row->OwnerOccupiedHUs"; ?>
+                    <br>
+                    <img src="https://www.flaticon.com/svg/static/icons/svg/951/951216.svg" width="3%" height="3%">
+                    <?php echo "Population Growth Rate: $row->PopulationGrowthRate"; ?> 
+                    <br>
+                    <img src="https://www.flaticon.com/svg/static/icons/svg/3260/3260792.svg" width="3%" height="3%">
+    <?php
+    echo "Air Quality Index: $row->airquality";
+    if ($row->airquality >= 0 && $row->airquality <= 50) {
+        echo ", air quality is <font color=\"green\"><b>good</b></font>.";
+    } elseif ($row->airquality >= 51 && $row->airquality <= 100) {
+        echo ", air quality is  <font color=\"gold\"><b>moderate</b></font>.";
+    } elseif ($row->airquality >= 101 && $row->airquality <= 150) {
+        echo ", air quality is  <font color=\"orange\"><b> unhealthy for sensitive groups </b></font>.";
+    } elseif ($row->airquality >= 151 && $row->airquality <= 200) {
+        echo ", air quality is  <font color=\"red\"><b> unhealthy</b></font>.";
+    } elseif ($row->airquality >= 201 && $row->airquality <= 300) {
+        echo ", air quality is  <font color=\"purple\"><b> very unhealthy</b></font>.";
+    } elseif ($row->airquality >= 301 && $row->airquality <= 500) {
+        echo ", air quality is  <font color=\"maroon\"><b>hazardous</b></font>.";
+    }
+}
+?>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+		
+</body>
 </html>
