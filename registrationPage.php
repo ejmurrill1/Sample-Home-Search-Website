@@ -101,17 +101,16 @@ if (! empty($_POST["signup-btn"])) {
 					</div>
 				</form>
 			</div>
-		</div>
   </br>
     <div class="login-signup">
-      <P>Already Have an Account?</br> <a href="LoginPage.php">Login Here!</a></P>
-    </div>
-	</div>
+            <P>Already Have an Account?</br> <a href="LoginPage.php">Login Here!</a></P>
+       </div>
+   </div>
+</div>
 
 	<script>
 function signupValidation() {
 	var valid = true;
-
 	$("#username").removeClass("error-field");
 	$("#email").removeClass("error-field");
 	$("#password").removeClass("error-field");
