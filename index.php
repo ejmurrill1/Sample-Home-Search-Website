@@ -5,11 +5,12 @@ include 'database.php';
 <html>
     <?php include 'header.php'; ?>   
     <body>
-        <div class="jumbotron text-center">
-            <h1>Macro Homes</h1>
-        </div>
+	<TITLE>Welcome to Macro-Homes!</TITLE>
+    
+         
+     <br>
 	
-	<h1 style="text-align: center">Featured Cities</h1>
+	<h2 style="text-align: center">Featured Cities</h2>
 
 
 	<div class="container">
@@ -78,7 +79,7 @@ include 'database.php';
 	</div>
 	<br>
 	
-	<h1 style="text-align: center">Search for a Home</h1>
+	<h2 style="text-align: center">Search for a Home</h2>
     <div class="container-fluid">
         <div class="row mb-5">
             <div class="col-lg-8 mx-auto bg-white p-5 rounded shadow">
@@ -100,14 +101,16 @@ include 'database.php';
     
     if($queryResults > 0){
       while($row = mysqli_fetch_assoc($result)) { ?>
-        <div class='card mb-3' style='width: 18rem;'>
+        <div class='card mb-3' style='width: 20rem;'>
         <a href="detailsPage.php?id=<?php echo $row['id'] ?>" style="text-decoration: none; color: black;">
                 <img class='card-img-top' src="<?php echo $row['image'] ?>" alt='Not Found' onerror=this.src="img/noimg.jpg">
             <div class='container'>
-              <h4><?php echo $row['address'] ?></h4>
+			<br>
+              <h5><?php echo $row['address'] ?></h5>
                 <p><?php echo $row['city'] . ", " . $row['state'] . " " . $row['zipcode'] ?></p>
                 <p><?php echo  $row['price']; ?></p>
-                <p><?php echo $row['numbed'] . " bed - " . $row['numbath'] . " bath - " . $row['squarefootage'] . " Square Feet" ?></p>
+                <p>  <?php echo $row['numbed'] . " Bed | " ?>
+				<?php echo $row['numbath'] .   " Bath | "  .$row['squarefootage'] . " Square Feet" ?></p>
                
             </div>
         </div>
