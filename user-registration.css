@@ -12,8 +12,10 @@
 	float: right;
 }
 
-}
+.container{
+	display: flex;
 
+}
 
 .login-signup {
 	margin: 10px;
@@ -93,3 +95,12 @@ input.btn {
 	padding-top: 60px;
 	text-align: center;
 }
+html, body{
+	height: 100%;
+	margin-left: -1px;
+	margin-top: -1px;
+	margin-bottom: -1px;
+	margin-right: -1px;
+	width: 100%;
+}
+
