@@ -107,7 +107,7 @@ session_start();
     $connectsqli = $conn->query($sql);
     //display sort message
     if($inputOrder !== null && $inputOrder !== 'Any' && $orderType !== null && $orderType !== 'Any') { ?>
-        <p style="color: white">Sorting by <?php echo $inputOrder . " " . $orderType . "ing"; ?></p>  
+        <h4 style="color: black; text-align: center;">Sorting by <?php echo $inputOrder . " in " . $orderType . "ing order."; ?></h4>  
     <?php     
     }
     ?>
