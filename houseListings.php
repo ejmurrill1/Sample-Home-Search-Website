@@ -105,6 +105,7 @@ session_start();
     }
     $result = mysqli_query($conn, $sql);
     $connectsqli = $conn->query($sql);
+	$num_list= mysqli_num_rows ($result);
     //display sort message
     if($inputOrder !== null && $inputOrder !== 'Any' && $orderType !== null && $orderType !== 'Any') { ?>
         <p style="color: white">Sorting by <?php echo $inputOrder . " " . $orderType . "ing"; ?></p>  
@@ -112,15 +113,19 @@ session_start();
     }
     ?>
     <div class="container mt-2">
+	    <center> Displaying <?php echo $num_list ?> results   </center>
         <div class="row">
            
                 <div id="map"></div>
-           
+    
             
     <?php
       if(!empty($connectsqli) && $connectsqli->num_rows > 0){
+		  
       while($row = mysqli_fetch_assoc($result)) { ?>
-        <div class="col-md-3 col-sm-6">
+    
+	   <div class="col-md-3 col-sm-6">
+		
             <div class="card card-block">
                 <a href="detailsPage.php?id=<?php echo $row['id'] ?>" style="text-decoration: none; color: black;">
                     <img class='card-img-top' src="<?php echo $row['image'] ?>" alt='Not Found' onerror=this.src="img/noimg.jpg">
