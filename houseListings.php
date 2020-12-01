@@ -99,9 +99,9 @@ session_start();
         }
     }
     if ($inputOrder !== null && $inputOrder !== 'Any' && $orderType !== null && $orderType !== 'Any'){
-        $sql = "SELECT * FROM cis4290 $where $order $orderby";
+        $sql = "SELECT * FROM combinedhomes $where $order $orderby";
     } else {
-        $sql = "SELECT * FROM cis4290 $where";
+        $sql = "SELECT * FROM combinedhomes $where";
     }
     $result = mysqli_query($conn, $sql);
     $connectsqli = $conn->query($sql);
